@@ -13,38 +13,47 @@
 html{font-size:14px}
 body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);line-height:1.65}
 
-/* ── header ── */
-.hd{background:var(--white);border-bottom:1px solid var(--bd);padding:20px 32px 16px;position:sticky;top:0;z-index:100}
+/* header */
+.hd{background:var(--white);border-bottom:1px solid var(--bd);padding:16px 32px;position:sticky;top:0;z-index:200}
 .hd-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px}
 .logo{width:32px;height:32px;border-radius:7px;background:#2a2520;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#f0c87a;flex-shrink:0}
 .hd-title{font-size:16px;font-weight:700}
 .hd-sub{font-size:11px;color:var(--sub);margin-top:1px}
+.hd-tools{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.hd-btn{border:1px solid var(--bd);border-radius:6px;padding:5px 12px;font-size:11px;font-weight:500;background:var(--white);color:var(--sub);cursor:pointer;white-space:nowrap;transition:all .15s}
+.hd-btn:hover{border-color:var(--acc);color:var(--tx)}
+.hd-btn.green{background:#edf8f3;color:#0e6640;border-color:#a0d8bc}
+.hd-btn.blue{background:#edf4ff;color:#1a4f8c;border-color:#b8d0ee}
+.hd-btn.red{background:#fff0f0;color:#8c2020;border-color:#e8b8b8}
 
-/* ── search ── */
-.sw{max-width:1080px;margin:18px auto 0;padding:0 32px}
+/* search */
+.sw{max-width:1080px;margin:16px auto 0;padding:0 32px}
 .si{width:100%;border:1px solid var(--bd);border-radius:8px;padding:10px 14px;font-size:13px;background:var(--white);color:var(--tx);outline:none;transition:border-color .15s}
 .si:focus{border-color:var(--acc)}
 .si::placeholder{color:var(--muted)}
 
-/* ── top filter ── */
-.fb{max-width:1080px;margin:12px auto 0;padding:0 32px;display:flex;gap:5px;flex-wrap:wrap}
+/* top filter */
+.fb{max-width:1080px;margin:10px auto 0;padding:0 32px;display:flex;gap:5px;flex-wrap:wrap}
 .fb-btn{border:1px solid var(--bd);border-radius:20px;padding:5px 13px;font-size:12px;font-weight:500;background:var(--white);color:var(--sub);cursor:pointer;transition:all .15s;white-space:nowrap}
 .fb-btn:hover{border-color:var(--acc);color:var(--tx)}
 .fb-btn.on{background:var(--tx);color:var(--white);border-color:var(--tx)}
 
-/* ── main ── */
-.main{max-width:1080px;margin:20px auto 60px;padding:0 32px}
+/* main */
+.main{max-width:1080px;margin:18px auto 60px;padding:0 32px}
+.no-result{text-align:center;padding:40px 0;color:var(--muted);font-size:13px;display:none}
 
-/* ── section head ── */
+/* section head */
 .sh{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1.5px solid var(--bd);margin-top:28px}
 .sh:first-child{margin-top:0}
-.sh-title{font-size:13px;font-weight:600}
+.sh-title{font-size:13px;font-weight:600;flex:1}
+.sh-add{border:1px solid var(--bd);border-radius:6px;padding:3px 10px;font-size:11px;background:var(--white);color:var(--sub);cursor:pointer;white-space:nowrap;transition:all .15s}
+.sh-add:hover{border-color:#0e6640;color:#0e6640;background:#edf8f3}
 
-/* ── card grid ── */
+/* card grid */
 .card-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:4px}
 
-/* ── unified card ── */
-.card{background:var(--white);border:1px solid var(--bd);border-radius:10px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;transition:border-color .15s;cursor:default}
+/* card */
+.card{background:var(--white);border:1px solid var(--bd);border-radius:10px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;transition:border-color .15s}
 .card:hover{border-color:var(--acc)}
 .card.hidden{display:none}
 .card-num{font-size:11px;color:var(--muted);font-weight:600;min-width:20px;padding-top:2px;flex-shrink:0}
@@ -52,10 +61,10 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;ba
 .card-q{font-size:13px;font-weight:500;color:var(--tx);line-height:1.55;margin-bottom:5px}
 .card-a{font-size:12px;color:var(--sub);line-height:1.6}
 .card-a em{color:var(--tx);font-style:normal;font-weight:500}
-.card-a b{color:var(--tx);font-weight:600}
 .card-foot{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap}
+
+/* badges */
 .badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;white-space:nowrap;border:1px solid transparent}
-/* badge colors */
 .b-sch{background:#fff8ed;color:#8c5a10;border-color:#e8cfaa}
 .b-est{background:#edf4ff;color:#1a4f8c;border-color:#b8d0ee}
 .b-prod{background:#fff4ee;color:#7a3010;border-color:#e8c8b0}
@@ -66,7 +75,6 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;ba
 .b-rev{background:#f0f7ee;color:#2e6028;border-color:#aed0a8}
 .b-doc{background:#fdf0f7;color:#7a2060;border-color:#ddb0cc}
 .b-ment{background:#e8f4fd;color:#0a5a8a;border-color:#8cc8ee}
-/* ment sub-badge colors */
 .b-greet{background:#e8f0fe;color:#1a4f8c;border-color:#b8d0ee}
 .b-emp{background:#fdf0f7;color:#7a2060;border-color:#ddb0cc}
 .b-ptip{background:#fff4ee;color:#7a3010;border-color:#e8c8b0}
@@ -77,34 +85,54 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;ba
 .b-close{background:#f0f7ee;color:#2e6028;border-color:#aed0a8}
 .b-cons{background:#eefaf5;color:#0d5c3a;border-color:#90d4b8}
 .b-urg{background:#fdf0f7;color:#7a2060;border-color:#e8b8b8}
+.b-manual{background:#f0f0f0;color:#444;border-color:#c8c8c8}
+.b-manual-claim{background:#fff0ee;color:#7a2010;border-color:#e8c0b8}
 
-/* copy btn */
-.copy-btn{border:1px solid var(--bd);border-radius:6px;padding:3px 10px;font-size:11px;background:var(--white);color:var(--sub);cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0;margin-left:auto}
+/* action btns */
+.copy-btn,.edit-btn,.del-btn{border:1px solid var(--bd);border-radius:6px;padding:3px 9px;font-size:11px;background:var(--white);color:var(--sub);cursor:pointer;transition:all .15s;white-space:nowrap}
 .copy-btn:hover{border-color:var(--acc);color:var(--tx)}
 .copy-btn.done{border-color:#0e6640;color:#0e6640;background:#edf8f3}
+.edit-btn:hover{border-color:#1a4f8c;color:#1a4f8c;background:#edf4ff}
+.del-btn:hover{border-color:#8c2020;color:#8c2020;background:#fff0f0}
 
-/* ment cat filter */
+/* ment */
 .mcat-bar{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
 .mcat-btn{border:1px solid var(--bd);border-radius:20px;padding:4px 11px;font-size:11px;font-weight:500;background:var(--white);color:var(--sub);cursor:pointer;transition:all .15s;white-space:nowrap}
 .mcat-btn:hover{border-color:var(--acc);color:var(--tx)}
 .mcat-btn.on{background:var(--tx);color:var(--white);border-color:var(--tx)}
-
-/* ment search row */
 .msrow{display:flex;align-items:center;gap:8px;margin-bottom:10px}
 .msi{flex:1;border:1px solid var(--bd);border-radius:8px;padding:8px 12px;font-size:13px;background:var(--white);color:var(--tx);outline:none;transition:border-color .15s}
 .msi:focus{border-color:var(--acc)}
 .msi::placeholder{color:var(--muted)}
 .mcnt{font-size:11px;color:var(--muted);white-space:nowrap}
 
-.no-result{text-align:center;padding:40px 0;color:var(--muted);font-size:13px;display:none}
+/* ── Modal ── */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:var(--white);border-radius:14px;padding:24px 28px;width:min(560px,92vw);max-height:90vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.18)}
+.modal h3{font-size:15px;font-weight:700;margin-bottom:18px}
+.modal label{font-size:12px;font-weight:600;color:var(--sub);display:block;margin-bottom:4px;margin-top:14px}
+.modal label:first-of-type{margin-top:0}
+.modal input,.modal textarea,.modal select{width:100%;border:1px solid var(--bd);border-radius:7px;padding:8px 10px;font-size:13px;font-family:inherit;color:var(--tx);background:var(--white);outline:none;transition:border-color .15s;resize:vertical}
+.modal input:focus,.modal textarea:focus,.modal select:focus{border-color:var(--acc)}
+.modal textarea{min-height:80px}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:20px}
+.modal-btns button{border:1px solid var(--bd);border-radius:7px;padding:7px 18px;font-size:13px;cursor:pointer;transition:all .15s;font-weight:500}
+.btn-cancel{background:var(--white);color:var(--sub)}
+.btn-cancel:hover{border-color:var(--acc)}
+.btn-save{background:#2a2520;color:var(--white);border-color:#2a2520}
+.btn-save:hover{background:#444}
 
-@media(max-width:640px){
-  .hd,.sw,.fb,.main{padding-left:12px;padding-right:12px}
-}
+/* toast */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2a2520;color:#fff;font-size:12px;padding:9px 20px;border-radius:20px;opacity:0;transition:all .3s;z-index:999;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:640px){.hd,.sw,.fb,.main{padding-left:12px;padding-right:12px}}
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <div class="hd">
   <div class="hd-inner">
     <div class="logo">AR</div>
@@ -112,11 +140,18 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;ba
       <div class="hd-title">아르떼조명 고객 질문 정리</div>
       <div class="hd-sub">자주 묻는 질문 FAQ · 상담 멘트 모음</div>
     </div>
+    <div class="hd-tools">
+      <button class="hd-btn green" id="btnExport">💾 백업 저장</button>
+      <button class="hd-btn blue"  id="btnImport">📂 백업 불러오기</button>
+      <input type="file" id="fileInput" accept=".json" style="display:none">
+    </div>
   </div>
 </div>
 
+<!-- Search -->
 <div class="sw"><input class="si" id="gSearch" type="text" placeholder="전체 검색 (질문·답변·멘트 내용)…"></div>
 
+<!-- Top filter -->
 <div class="fb" id="topFilter">
   <button class="fb-btn on" data-sec="all">전체</button>
   <button class="fb-btn" data-sec="sch">시공 일정</button>
@@ -134,68 +169,22 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;ba
 <div class="main">
 <div class="no-result" id="noResult">검색 결과가 없습니다.</div>
 
-<!-- ===================== FAQ SECTIONS ===================== -->
+<!-- FAQ 섹션 -->
 <div id="faqArea">
-
-<!-- 1. 시공 일정 -->
-<div class="faq-sec" data-sec="sch">
-  <div class="sh"><span class="badge b-sch">시공 일정</span><span class="sh-title">설치·방문 일정 / 날짜</span></div>
-  <div class="card-grid" id="cg-sch"></div>
+  <div class="faq-sec" data-sec="sch"><div class="sh"><span class="badge b-sch">시공 일정</span><span class="sh-title">설치·방문 일정 / 날짜</span><button class="sh-add" data-sec="sch">+ 항목 추가</button></div><div class="card-grid" id="cg-sch"></div></div>
+  <div class="faq-sec" data-sec="est"><div class="sh"><span class="badge b-est">비용·견적</span><span class="sh-title">비용 · 견적 · 할인 · 이벤트</span><button class="sh-add" data-sec="est">+ 항목 추가</button></div><div class="card-grid" id="cg-est"></div></div>
+  <div class="faq-sec" data-sec="prod"><div class="sh"><span class="badge b-prod">제품·구성</span><span class="sh-title">부품 / 등기구 교체 · 구성</span><button class="sh-add" data-sec="prod">+ 항목 추가</button></div><div class="card-grid" id="cg-prod"></div></div>
+  <div class="faq-sec" data-sec="pay"><div class="sh"><span class="badge b-pay">결제·입금</span><span class="sh-title">주문 · 결제 · 입금</span><button class="sh-add" data-sec="pay">+ 항목 추가</button></div><div class="card-grid" id="cg-pay"></div></div>
+  <div class="faq-sec" data-sec="can"><div class="sh"><span class="badge b-can">취소·환불</span><span class="sh-title">교환 · 환불 · 반품 · 취소</span><button class="sh-add" data-sec="can">+ 항목 추가</button></div><div class="card-grid" id="cg-can"></div></div>
+  <div class="faq-sec" data-sec="as"><div class="sh"><span class="badge b-as">AS·하자</span><span class="sh-title">A/S 접수 · 하자보수</span><button class="sh-add" data-sec="as">+ 항목 추가</button></div><div class="card-grid" id="cg-as"></div></div>
+  <div class="faq-sec" data-sec="how"><div class="sh"><span class="badge b-how">사용·설치</span><span class="sh-title">설치 / 사용 방법 문의</span><button class="sh-add" data-sec="how">+ 항목 추가</button></div><div class="card-grid" id="cg-how"></div></div>
+  <div class="faq-sec" data-sec="rev"><div class="sh"><span class="badge b-rev">후기·이벤트</span><span class="sh-title">후기 · 할인 · 이벤트</span><button class="sh-add" data-sec="rev">+ 항목 추가</button></div><div class="card-grid" id="cg-rev"></div></div>
+  <div class="faq-sec" data-sec="doc"><div class="sh"><span class="badge b-doc">서류</span><span class="sh-title">서류 · 계약서 · 보증서 · 세금계산서</span><button class="sh-add" data-sec="doc">+ 항목 추가</button></div><div class="card-grid" id="cg-doc"></div></div>
 </div>
 
-<!-- 2. 비용·견적 -->
-<div class="faq-sec" data-sec="est">
-  <div class="sh"><span class="badge b-est">비용·견적</span><span class="sh-title">비용 · 견적 · 할인 · 이벤트</span></div>
-  <div class="card-grid" id="cg-est"></div>
-</div>
-
-<!-- 3. 제품·구성 -->
-<div class="faq-sec" data-sec="prod">
-  <div class="sh"><span class="badge b-prod">제품·구성</span><span class="sh-title">부품 / 등기구 교체 · 구성</span></div>
-  <div class="card-grid" id="cg-prod"></div>
-</div>
-
-<!-- 4. 결제·입금 -->
-<div class="faq-sec" data-sec="pay">
-  <div class="sh"><span class="badge b-pay">결제·입금</span><span class="sh-title">주문 · 결제 · 입금</span></div>
-  <div class="card-grid" id="cg-pay"></div>
-</div>
-
-<!-- 5. 취소·환불 -->
-<div class="faq-sec" data-sec="can">
-  <div class="sh"><span class="badge b-can">취소·환불</span><span class="sh-title">교환 · 환불 · 반품 · 취소</span></div>
-  <div class="card-grid" id="cg-can"></div>
-</div>
-
-<!-- 6. AS·하자 -->
-<div class="faq-sec" data-sec="as">
-  <div class="sh"><span class="badge b-as">AS·하자</span><span class="sh-title">A/S 접수 · 하자보수</span></div>
-  <div class="card-grid" id="cg-as"></div>
-</div>
-
-<!-- 7. 사용·설치 -->
-<div class="faq-sec" data-sec="how">
-  <div class="sh"><span class="badge b-how">사용·설치</span><span class="sh-title">설치 / 사용 방법 문의</span></div>
-  <div class="card-grid" id="cg-how"></div>
-</div>
-
-<!-- 8. 후기·이벤트 -->
-<div class="faq-sec" data-sec="rev">
-  <div class="sh"><span class="badge b-rev">후기·이벤트</span><span class="sh-title">후기 · 할인 · 이벤트</span></div>
-  <div class="card-grid" id="cg-rev"></div>
-</div>
-
-<!-- 9. 서류·계약서 -->
-<div class="faq-sec" data-sec="doc">
-  <div class="sh"><span class="badge b-doc">서류</span><span class="sh-title">서류 · 계약서 · 보증서 · 세금계산서</span></div>
-  <div class="card-grid" id="cg-doc"></div>
-</div>
-
-</div><!-- /faqArea -->
-
-<!-- ===================== 상담 멘트 ===================== -->
+<!-- 상담 멘트 -->
 <div id="mentArea">
-  <div class="sh"><span class="badge b-ment">💬 상담 멘트</span><span class="sh-title">고객 상담 시 활용 메시지 100선</span></div>
+  <div class="sh"><span class="badge b-ment">💬 상담 멘트</span><span class="sh-title">고객 상담 시 활용 메시지 100선</span><button class="sh-add" data-sec="ment">+ 멘트 추가</button></div>
   <div class="msrow">
     <input class="msi" id="mSearch" type="text" placeholder="멘트 검색…">
     <span class="mcnt" id="mCnt">100개</span>
@@ -212,15 +201,74 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;ba
     <button class="mcat-btn" data-mc="close">마무리·사후관리</button>
     <button class="mcat-btn" data-mc="cons">전문 컨설팅</button>
     <button class="mcat-btn" data-mc="urg">긴급·특수 상황</button>
+    <button class="mcat-btn" data-mc="manual_prod" style="border-color:#c8c8c8;color:#555">📋 매뉴얼_제품사양</button>
+    <button class="mcat-btn" data-mc="manual_price" style="border-color:#c8c8c8;color:#555">📋 매뉴얼_가격비용</button>
+    <button class="mcat-btn" data-mc="manual_as" style="border-color:#c8c8c8;color:#555">📋 매뉴얼_AS하자</button>
+    <button class="mcat-btn" data-mc="manual_proc" style="border-color:#c8c8c8;color:#555">📋 매뉴얼_시공일정</button>
+    <button class="mcat-btn" data-mc="manual_claim" style="border-color:#e8c0b8;color:#7a2010">📋 매뉴얼_클레임</button>
   </div>
   <div class="card-grid" id="mentGrid"></div>
 </div>
 
 </div><!-- /main -->
 
+<!-- Edit Modal -->
+<div class="modal-bg" id="editModal">
+  <div class="modal">
+    <h3 id="modalTitle">항목 수정</h3>
+    <label id="lblSec">카테고리</label>
+    <select id="modalSec">
+      <option value="sch">시공 일정</option>
+      <option value="est">비용·견적</option>
+      <option value="prod">제품·구성</option>
+      <option value="pay">결제·입금</option>
+      <option value="can">취소·환불</option>
+      <option value="as">AS·하자</option>
+      <option value="how">사용·설치</option>
+      <option value="rev">후기·이벤트</option>
+      <option value="doc">서류·계약서</option>
+    </select>
+    <div id="mentCatRow">
+      <label>멘트 카테고리</label>
+      <select id="modalMc">
+        <option value="greet">첫 인사·환영</option>
+        <option value="emp">공감·경청</option>
+        <option value="ptip">제품·기술 안내</option>
+        <option value="price">견적·가격 안내</option>
+        <option value="sched">일정·납기 안내</option>
+        <option value="comp">불만·컴플레인</option>
+        <option value="ref">완곡한 거절</option>
+        <option value="close">마무리·사후관리</option>
+        <option value="cons">전문 컨설팅</option>
+        <option value="urg">긴급·특수 상황</option>
+        <option value="manual_prod">📋 매뉴얼_제품사양</option>
+        <option value="manual_price">📋 매뉴얼_가격비용</option>
+        <option value="manual_as">📋 매뉴얼_AS하자</option>
+        <option value="manual_proc">📋 매뉴얼_시공일정</option>
+        <option value="manual_claim">📋 매뉴얼_클레임</option>
+      </select>
+    </div>
+    <label id="lblQ">질문</label>
+    <textarea id="modalQ" rows="2" placeholder="질문 내용을 입력하세요"></textarea>
+    <div id="answerRow">
+      <label>답변</label>
+      <textarea id="modalA" rows="3" placeholder="답변 내용을 입력하세요 (em 태그로 강조: <em>강조어</em>)"></textarea>
+    </div>
+    <div class="modal-btns">
+      <button class="btn-cancel" id="modalCancel">취소</button>
+      <button class="btn-save"   id="modalSave">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
 <script>
-// ── FAQ 데이터 ──────────────────────────────────────────
-const FAQ = {
+// ═══════════════════════════════════════════════════
+// 데이터
+// ═══════════════════════════════════════════════════
+let FAQ = {
   sch:[
     {q:"시공 날짜 예약은 어떻게 하나요? / ○월 ○일 가능한가요?", a:"희망 날짜와 입주일·잔금 납부일을 알려주시면 일정 확인 후 예약 확정 안내드립니다."},
     {q:"시공 날짜를 당기거나 변경할 수 있나요?", a:"변경 희망 날짜를 남겨주시면 시공팀과 조율 후 가능 여부를 안내드립니다. 최소 <em>3일 전</em> 요청을 권장합니다."},
@@ -257,7 +305,7 @@ const FAQ = {
     {q:"조명색(전구색·주백색·주광색) 차이가 뭔가요? 각각 몇 K인가요?", a:"<em>전구색 3000K</em>(따뜻한 노란빛), <em>주백색 4000K</em>(중간·자연광), <em>주광색 6500K</em>(차갑고 밝음). 전주백색(3500K)도 별도 발주 가능합니다."},
     {q:"공간마다 조명 색상을 다르게 할 수 있나요?", a:"공간별로 다른 색상을 선택하실 수 있습니다. 희망 위치와 색온도를 알려주시면 견적서에 반영해 드립니다."},
     {q:"집중형과 확산형 매입등 차이가 뭔가요?", a:"<em>집중형</em>은 빛이 한 방향으로 모여 포인트·작업등에 적합합니다. <em>확산형</em>은 빛이 넓게 퍼져 전체 밝기 확보에 좋습니다."},
-    {q:"간접A세트는 기존 건설사 스위치와 연동이 되나요?", a:"간접A세트 시공 시 기존 건설사 스위치는 <em>철거 후 새 스위치로 교체</em>됩니다."},
+    {q:"간접A세트는 기존 건설사 스위치와 연동이 되나요?", a:"건설사 스위치와 연동되지 않으며, 철거 없이 <em>신설로 설치</em>됩니다."},
     {q:"간접등 8개를 4개씩 따로 스위치로 분리할 수 있나요?", a:"전자식 스위치 선택 시 회로 분리가 가능합니다. 텀블러 스위치는 기본 1회로입니다."},
     {q:"욕실 센서등 유지 시간과 민감도를 조절할 수 있나요?", a:"욕실 천장 센서를 직접 조절하실 수 있습니다. <em>약·중·강 모드 + 주간·야간 모드</em>가 있으며 조작 방법 이미지를 보내드립니다."},
     {q:"공스피커가 뭔가요?", a:"조명이나 센서를 매입할 때 천장에 뚫은 구멍을 마감하는 <em>원형 플라스틱 캡</em>입니다. 세트 시공 시에는 해당 구멍이 생기지 않아 필요하지 않습니다."},
@@ -314,281 +362,434 @@ const FAQ = {
   ],
 };
 
-// ── 상담 멘트 데이터 ───────────────────────────────────
-const MENTS = [
-  {mc:"greet", t:"안녕하세요! 아르떼조명입니다. 무엇을 도와드릴까요? 편하게 말씀해 주세요 😊"},
-  {mc:"greet", t:"반갑습니다! 먼저 어떤 공간을 꾸미실 계획인지 여쭤봐도 될까요?"},
-  {mc:"greet", t:"문의 주셔서 감사합니다. 궁금하신 점을 편하게 남겨 주시면 빠르게 확인해 드릴게요!"},
-  {mc:"greet", t:"안녕하세요, 오늘 박람회에서 계약해 주셨군요! 환영합니다 😊 궁금하신 점 있으시면 언제든지 말씀해 주세요."},
-  {mc:"greet", t:"처음 문의 주셨군요! 아르떼조명에 관심 가져 주셔서 감사합니다. 어떤 부분이 궁금하세요?"},
-  {mc:"greet", t:"안녕하세요! 카카오톡으로 편하게 연락 주셔서 감사합니다. 빠르게 답변 드리겠습니다 😊"},
-  {mc:"greet", t:"방문해 주셔서 감사합니다! 저희 시공 사례나 가격이 궁금하신가요? 도움 드릴게요."},
-  {mc:"greet", t:"안녕하세요! 오늘 어떤 도움이 필요하신가요? 조명, 도배, 실링팬 모두 안내 가능합니다."},
-  {mc:"greet", t:"연락 주셔서 감사합니다 🙏 아르떼조명 담당자입니다. 어떤 상담을 원하시나요?"},
-  {mc:"greet", t:"처음 입주를 앞두고 계신가요? 설레는 순간에 함께할 수 있어 기쁩니다! 궁금한 점 편하게 물어봐 주세요."},
-  {mc:"emp", t:"많이 고민되셨을 것 같아요. 먼저 충분히 들려주시면 최선의 방법을 함께 찾아보겠습니다."},
-  {mc:"emp", t:"처음 인테리어 조명을 선택하시는 거라 쉽지 않으셨을 텐데, 정말 잘 오셨습니다."},
-  {mc:"emp", t:"그렇게 느끼셨군요. 저도 그 상황이라면 당연히 혼란스러우셨을 것 같아요."},
-  {mc:"emp", t:"공사 일정이 빡빡하신 상황이군요. 그 압박감이 얼마나 크실지 충분히 이해합니다."},
-  {mc:"emp", t:"말씀해 주신 부분, 꼼꼼히 잘 들었습니다. 하나도 그냥 넘기지 않겠습니다."},
-  {mc:"emp", t:"처음 기대하셨던 것과 달라서 정말 속상하셨겠어요. 당연한 감정이에요."},
-  {mc:"emp", t:"그 부분 저도 함께 속상합니다. 빨리 해결해 드리고 싶은 마음이에요."},
-  {mc:"emp", t:"오래 기다리셨는데, 이렇게 연락 주셔서 감사합니다. 지금부터 최우선으로 챙기겠습니다."},
-  {mc:"emp", t:"처음 들으시는 내용이라 낯설게 느껴지실 수 있어요. 천천히 같이 풀어가겠습니다."},
-  {mc:"emp", t:"정말 중요한 공간인 만큼 신중하게 고민하시는 거잖아요. 그 마음 너무 잘 이해해요."},
-  {mc:"ptip", t:"해당 제품은 루씨에어 레이더3 모델로, 52인치 기본 화이트로 제공됩니다. 색상 변경도 가능합니다."},
-  {mc:"ptip", t:"전구색(3000K)은 따뜻하고 아늑한 느낌, 주백색(4000K)은 자연광에 가까운 중간 톤입니다."},
-  {mc:"ptip", t:"집중형 다운라이트는 빛이 한 방향으로 모이고, 확산형은 넓게 퍼지는 차이가 있습니다."},
-  {mc:"ptip", t:"간접A세트는 커튼박스+매입등 조합으로, 텀블러와 전자식 스위치 중 선택하실 수 있어요."},
-  {mc:"ptip", t:"욕실 센서등은 약·중·강 모드와 주간·야간 모드를 센서 위치에서 직접 조절하실 수 있습니다."},
-  {mc:"ptip", t:"공스피커는 천장에 남은 구멍을 마감하는 캡입니다. 세트 시공 시에는 해당 사항이 없습니다."},
-  {mc:"ptip", t:"디아망 벽지의 기본 색상은 회벽화이트입니다. 시공 후에는 색상 변경이 어렵습니다."},
-  {mc:"ptip", t:"전자식 스위치는 밝기·색온도 조절 및 스마트폰 연동이 가능한 고급형 옵션입니다."},
-  {mc:"ptip", t:"라운드 우물조명은 목공+도배로 곡선 형태가 만들어지며, 직각 우물보다 더욱 부드러운 느낌입니다."},
-  {mc:"ptip", t:"무몰딩 도배는 벽과 천장 경계에 몰딩 없이 마감하는 방식으로, 깔끔하고 현대적인 느낌을 줍니다."},
-  {mc:"price", t:"간접A세트(매입등 8구+커튼박스) 텀블러 스위치 기준 43만원, 전자식+리모컨 기준 60만원입니다."},
-  {mc:"price", t:"욕실 간접센서세트(욕실 2곳+신발장 하부) 29만원, 단품은 개당 11만원입니다."},
-  {mc:"price", t:"직각 우물조명은 80만원, 라운드 우물은 110만원이며 한 변이 4M 이상이면 10만원이 추가됩니다."},
-  {mc:"price", t:"무몰딩 도배는 타입별로 185만원 내외이며, 거실·복도·주방 천장이 포함됩니다."},
-  {mc:"price", t:"단품 매입등 추가는 3인치 개당 3만원, 4인치는 4만원이며 배선 신설 시 3~5만원이 추가됩니다."},
-  {mc:"price", t:"박람회 할인가는 해당 행사 기간에만 적용됩니다. 카톡 상담가는 견적서로 별도 안내드립니다."},
-  {mc:"price", t:"후기 작성 후 캡처본을 보내주시면 3만원 할인을 적용해 드립니다."},
-  {mc:"price", t:"출장비는 29만원 미만 소규모 작업 시 5만원이 발생하며, 시공 계약 건은 무료입니다."},
-  {mc:"price", t:"콘센트 추가 시공은 가벽 여부에 따라 10~15만원이며, 사전 요청이 필요합니다."},
-  {mc:"price", t:"간접등 2줄 추가 시 기본 1줄 대비 26만원이 추가됩니다. 정확한 견적은 도면 확인 후 안내드립니다."},
-  {mc:"sched", t:"희망 날짜와 입주일을 알려주시면 시공 가능 일정을 확인해 드리겠습니다."},
-  {mc:"sched", t:"조명만 시공 시 1일, 도배+조명은 2~3일, 전체 공정은 3~5일 정도 소요됩니다."},
-  {mc:"sched", t:"방문 전날 또는 당일 아침에 시공팀에서 도착 예정 시간을 별도로 연락드립니다."},
-  {mc:"sched", t:"실링팬은 도배 건조 완료(약 2~3일 후) 이후 체결 작업이 진행됩니다."},
-  {mc:"sched", t:"탄성코트와 조명은 같은 날 진행 가능합니다. 탄성 도포 후 건조 구간 이후에 조명 작업을 시작합니다."},
-  {mc:"sched", t:"줄눈 양생 후 24~48시간 경과 시 도배 진행을 권장합니다. 조명은 동일 날짜도 가능합니다."},
-  {mc:"sched", t:"무몰딩 도배는 반드시 입주청소 전에 시공해야 하며, 최소 7일 이상의 여유가 필요합니다."},
-  {mc:"sched", t:"조명 시공 첫날만 방문하시면 되며, 이후 공정은 비밀번호 공유로 비대면 진행 가능합니다."},
-  {mc:"sched", t:"변경 희망 날짜를 알려주시면 시공팀과 조율 후 가능 여부를 안내드리겠습니다."},
-  {mc:"sched", t:"무상 이벤트 조명 시공은 입주 완료 후 4~6개월 이내 일괄 진행 예정입니다."},
-  {mc:"comp", t:"불편을 드려 정말 죄송합니다. 어떤 상황인지 자세히 말씀해 주시면 즉시 확인하겠습니다."},
-  {mc:"comp", t:"말씀하신 내용 꼼꼼히 확인하겠습니다. 빠르게 해결책을 찾아 연락드릴게요."},
-  {mc:"comp", t:"이런 상황이 생겨 정말 죄송합니다. 담당자에게 즉시 전달하고 조치 방법을 알려드리겠습니다."},
-  {mc:"comp", t:"AS 기간 내 발생한 문제이므로 무상으로 처리해 드리겠습니다. 방문 일정을 잡아드릴게요."},
-  {mc:"comp", t:"사진이나 영상을 보내주시면 원인 파악에 도움이 됩니다. 확인 후 빠르게 안내드릴게요."},
-  {mc:"comp", t:"기다리셨을 텐데 정말 죄송합니다. 지금 바로 내부 확인 후 다시 연락드리겠습니다."},
-  {mc:"comp", t:"상담 내용이 달랐던 부분에 대해 사과드립니다. 정확한 내용을 다시 확인하고 안내드리겠습니다."},
-  {mc:"comp", t:"시공 품질에 대한 우려 감사합니다. 꼼꼼히 확인 후 필요한 경우 재시공 조치를 취하겠습니다."},
-  {mc:"comp", t:"연락이 늦어 불편드렸습니다. 지금부터 최우선으로 챙기겠습니다."},
-  {mc:"comp", t:"고객님의 소중한 의견을 겸허히 받아들이겠습니다. 더 나은 서비스를 위해 노력하겠습니다."},
-  {mc:"ref", t:"아쉽게도 해당 부분은 저희 시공 범위에 포함되지 않아 안내가 어렵습니다."},
-  {mc:"ref", t:"현재 일정이 모두 차 있어 해당 날짜는 어렵지만, 다른 날짜를 찾아봐 드릴게요."},
-  {mc:"ref", t:"타사 시공 건은 배선 구조를 파악하기 어려워 작업이 어렵습니다. 기존 업체에 문의하시길 권장드립니다."},
-  {mc:"ref", t:"2인치 매입등은 취급하지 않으며, 저희 최소 사이즈는 3인치입니다."},
-  {mc:"ref", t:"무상 기간이 지난 건은 유상 처리가 원칙이나, 상황을 확인 후 최대한 도와드리겠습니다."},
-  {mc:"ref", t:"라인조명은 목공 작업이 병행되어야 해서 사후 추가 시공이 어렵습니다. 사전에 말씀해 주셨다면 좋았을 것 같습니다."},
-  {mc:"ref", t:"환불 규정상 시공 6일 이내에는 환불이 어렵습니다. 자세한 내용은 계약서를 참고해 주세요."},
-  {mc:"ref", t:"당일 추가 항목은 자재 준비 문제로 바로 진행이 어렵습니다. 다음에 별도 방문으로 진행해 드릴게요."},
-  {mc:"ref", t:"죄송하지만 일요일 및 공휴일은 원칙적으로 시공이 어렵습니다. 다른 날짜를 제안해 드릴게요."},
-  {mc:"ref", t:"해당 부분은 건설사 시공 범위로, 아파트 지원센터에 문의하시는 것이 정확합니다."},
-  {mc:"close", t:"시공이 완료되면 최종 도면과 견적서를 전달드리니 확인 후 잔금 결제 부탁드립니다."},
-  {mc:"close", t:"시공 완료 후 이상이 없으신지 꼭 확인해 주시고, 문제가 있으면 바로 연락 주세요."},
-  {mc:"close", t:"후기를 입주자 카페에 올려주시고 캡처본을 보내주시면 3만원 할인을 적용해 드립니다."},
-  {mc:"close", t:"궁금하신 점이 생기면 언제든 카카오톡으로 연락 주세요. 항상 도움 드릴게요 😊"},
-  {mc:"close", t:"오늘 상담 도움이 되셨으면 좋겠습니다. 좋은 인테리어 완성되길 바랍니다!"},
-  {mc:"close", t:"시공 후 7일간 창문은 닫아 두시는 걸 권장드립니다. 도배 건조에 중요합니다."},
-  {mc:"close", t:"이후 AS가 필요하시면 언제든 접수해 주세요. 무상 기간 내는 부담 없이 연락 주세요!"},
-  {mc:"close", t:"감사합니다! 새 집에서 행복한 시간 보내세요 🏠"},
-  {mc:"close", t:"상담 내용을 요약해서 보내드리겠습니다. 추가로 확인이 필요하신 부분이 있으시면 말씀해 주세요."},
-  {mc:"close", t:"오늘 말씀 주신 내용 바탕으로 시공팀에 전달하겠습니다. 곧 일정 안내드릴게요!"},
-  {mc:"cons", t:"거실 조명은 공간 크기와 천장 높이를 고려하여 집중형과 확산형을 혼합 배치하는 것을 추천드립니다."},
-  {mc:"cons", t:"주방은 작업 공간이므로 주백색(4000K)이 적합하고, 거실·침실은 전구색(3000K)이 아늑한 분위기를 연출합니다."},
-  {mc:"cons", t:"실링팬은 거실 면적이 20평 이상이면 52인치 이상을 권장드립니다."},
-  {mc:"cons", t:"우물조명은 직각보다 라운드가 부드럽고 고급스러운 느낌을 주지만 비용이 30만원 정도 더 발생합니다."},
-  {mc:"cons", t:"전자식 스위치는 초기 비용이 높지만 밝기·색온도 조절로 공간 분위기를 자유롭게 바꿀 수 있어 만족도가 높습니다."},
-  {mc:"cons", t:"드레스룸이나 파우더룸은 자연광에 가까운 주백색(4000K)을 사용하시면 메이크업 시 색감 파악에 유리합니다."},
-  {mc:"cons", t:"간접조명 1줄과 2줄의 차이는 26만원이지만 공간감과 밝기 차이가 크므로 여유가 되시면 2줄을 권장드립니다."},
-  {mc:"cons", t:"무몰딩 도배는 청소 전 선행 시공이 필수이므로 입주 일정을 역산해 일정을 잡으시는 게 좋습니다."},
-  {mc:"cons", t:"복도와 현관은 센서등이 실용적이며, 거실·침실은 전자식 스위치로 분위기를 연출하시는 조합을 많이 선택하십니다."},
-  {mc:"cons", t:"처음 인테리어라면 기본 세트부터 시작하시고, 이후 단품 추가로 확장하시는 방법을 추천드립니다."},
-  {mc:"urg", t:"급하신 상황이군요! 지금 바로 담당자에게 전달하겠습니다. 잠시만 기다려 주세요."},
-  {mc:"urg", t:"안전 문제가 발생하셨다면 즉시 해당 스위치를 끄시고 저희에게 연락 주세요. 빠르게 조치하겠습니다."},
-  {mc:"urg", t:"입주가 코앞이신데 걱정이 크실 것 같아요. 가능한 가장 이른 날짜를 찾아보겠습니다."},
-  {mc:"urg", t:"취소 접수 요청 주셨군요. 지금 바로 처리 현황을 확인하고 결과를 알려드리겠습니다."},
-  {mc:"urg", t:"연락이 안 되어 불편하셨겠습니다. 지금 즉시 담당자에게 연락하겠습니다."},
-  {mc:"urg", t:"시공 당일 문제가 생기셨군요. 지금 바로 팀에 연락해서 빠르게 해결책을 찾겠습니다."},
-  {mc:"urg", t:"환불을 아직 못 받으셨다면 즉시 재확인하겠습니다. 처리 결과를 금일 중으로 안내드리겠습니다."},
-  {mc:"urg", t:"잔금 납부 전 추가 변경이 필요하신가요? 지금 바로 견적서를 수정해 드리겠습니다."},
-  {mc:"urg", t:"AS가 급하게 필요하신 경우 우선 접수 처리하여 가장 빠른 일정으로 방문 드리겠습니다."},
-  {mc:"urg", t:"예상치 못한 상황이 생기셨군요. 당황하지 마시고 차근차근 말씀해 주시면 함께 해결하겠습니다."},
+let MENTS = [
+  {mc:"greet",t:"안녕하세요! 아르떼조명입니다. 무엇을 도와드릴까요? 편하게 말씀해 주세요 😊"},
+  {mc:"greet",t:"반갑습니다! 먼저 어떤 공간을 꾸미실 계획인지 여쭤봐도 될까요?"},
+  {mc:"greet",t:"문의 주셔서 감사합니다. 궁금하신 점을 편하게 남겨 주시면 빠르게 확인해 드릴게요!"},
+  {mc:"greet",t:"안녕하세요, 오늘 박람회에서 계약해 주셨군요! 환영합니다 😊 궁금하신 점 있으시면 언제든지 말씀해 주세요."},
+  {mc:"greet",t:"처음 문의 주셨군요! 아르떼조명에 관심 가져 주셔서 감사합니다. 어떤 부분이 궁금하세요?"},
+  {mc:"greet",t:"안녕하세요! 카카오톡으로 편하게 연락 주셔서 감사합니다. 빠르게 답변 드리겠습니다 😊"},
+  {mc:"greet",t:"방문해 주셔서 감사합니다! 저희 시공 사례나 가격이 궁금하신가요? 도움 드릴게요."},
+  {mc:"greet",t:"안녕하세요! 오늘 어떤 도움이 필요하신가요? 조명, 도배, 실링팬 모두 안내 가능합니다."},
+  {mc:"greet",t:"연락 주셔서 감사합니다 🙏 아르떼조명 담당자입니다. 어떤 상담을 원하시나요?"},
+  {mc:"greet",t:"처음 입주를 앞두고 계신가요? 설레는 순간에 함께할 수 있어 기쁩니다! 궁금한 점 편하게 물어봐 주세요."},
+  {mc:"emp",t:"많이 고민되셨을 것 같아요. 먼저 충분히 들려주시면 최선의 방법을 함께 찾아보겠습니다."},
+  {mc:"emp",t:"처음 인테리어 조명을 선택하시는 거라 쉽지 않으셨을 텐데, 정말 잘 오셨습니다."},
+  {mc:"emp",t:"그렇게 느끼셨군요. 저도 그 상황이라면 당연히 혼란스러우셨을 것 같아요."},
+  {mc:"emp",t:"공사 일정이 빡빡하신 상황이군요. 그 압박감이 얼마나 크실지 충분히 이해합니다."},
+  {mc:"emp",t:"말씀해 주신 부분, 꼼꼼히 잘 들었습니다. 하나도 그냥 넘기지 않겠습니다."},
+  {mc:"emp",t:"처음 기대하셨던 것과 달라서 정말 속상하셨겠어요. 당연한 감정이에요."},
+  {mc:"emp",t:"그 부분 저도 함께 속상합니다. 빨리 해결해 드리고 싶은 마음이에요."},
+  {mc:"emp",t:"오래 기다리셨는데, 이렇게 연락 주셔서 감사합니다. 지금부터 최우선으로 챙기겠습니다."},
+  {mc:"emp",t:"처음 들으시는 내용이라 낯설게 느껴지실 수 있어요. 천천히 같이 풀어가겠습니다."},
+  {mc:"emp",t:"정말 중요한 공간인 만큼 신중하게 고민하시는 거잖아요. 그 마음 너무 잘 이해해요."},
+  {mc:"ptip",t:"해당 제품은 루씨에어 레이더3 모델로, 52인치 기본 화이트로 제공됩니다. 색상 변경도 가능합니다."},
+  {mc:"ptip",t:"전구색(3000K)은 따뜻하고 아늑한 느낌, 주백색(4000K)은 자연광에 가까운 중간 톤입니다."},
+  {mc:"ptip",t:"집중형 다운라이트는 빛이 한 방향으로 모이고, 확산형은 넓게 퍼지는 차이가 있습니다."},
+  {mc:"ptip",t:"간접A세트는 커튼박스+매입등 조합으로, 텀블러와 전자식 스위치 중 선택하실 수 있어요."},
+  {mc:"ptip",t:"욕실 센서등은 약·중·강 모드와 주간·야간 모드를 센서 위치에서 직접 조절하실 수 있습니다."},
+  {mc:"ptip",t:"공스피커는 천장에 남은 구멍을 마감하는 캡입니다. 세트 시공 시에는 해당 사항이 없습니다."},
+  {mc:"ptip",t:"디아망 벽지의 기본 색상은 회벽화이트입니다. 시공 후에는 색상 변경이 어렵습니다."},
+  {mc:"ptip",t:"전자식 스위치는 밝기·색온도 조절 및 스마트폰 연동이 가능한 고급형 옵션입니다."},
+  {mc:"ptip",t:"라운드 우물조명은 목공+도배로 곡선 형태가 만들어지며, 직각 우물보다 더욱 부드러운 느낌입니다."},
+  {mc:"ptip",t:"무몰딩 도배는 벽과 천장 경계에 몰딩 없이 마감하는 방식으로, 깔끔하고 현대적인 느낌을 줍니다."},
+  {mc:"price",t:"간접A세트(매입등 8구+커튼박스) 텀블러 스위치 기준 43만원, 전자식+리모컨 기준 60만원입니다."},
+  {mc:"price",t:"욕실 간접센서세트(욕실 2곳+신발장 하부) 29만원, 단품은 개당 11만원입니다."},
+  {mc:"price",t:"직각 우물조명은 80만원, 라운드 우물은 110만원이며 한 변이 4M 이상이면 10만원이 추가됩니다."},
+  {mc:"price",t:"무몰딩 도배는 타입별로 185만원 내외이며, 거실·복도·주방 천장이 포함됩니다."},
+  {mc:"price",t:"단품 매입등 추가는 3인치 개당 3만원, 4인치는 4만원이며 배선 신설 시 3~5만원이 추가됩니다."},
+  {mc:"price",t:"박람회 할인가는 해당 행사 기간에만 적용됩니다. 카톡 상담가는 견적서로 별도 안내드립니다."},
+  {mc:"price",t:"후기 작성 후 캡처본을 보내주시면 3만원 할인을 적용해 드립니다."},
+  {mc:"price",t:"출장비는 29만원 미만 소규모 작업 시 5만원이 발생하며, 시공 계약 건은 무료입니다."},
+  {mc:"price",t:"콘센트 추가 시공은 가벽 여부에 따라 10~15만원이며, 사전 요청이 필요합니다."},
+  {mc:"price",t:"간접등 2줄 추가 시 기본 1줄 대비 26만원이 추가됩니다. 정확한 견적은 도면 확인 후 안내드립니다."},
+  {mc:"sched",t:"희망 날짜와 입주일을 알려주시면 시공 가능 일정을 확인해 드리겠습니다."},
+  {mc:"sched",t:"조명만 시공 시 1일, 도배+조명은 2~3일, 전체 공정은 3~5일 정도 소요됩니다."},
+  {mc:"sched",t:"방문 전날 또는 당일 아침에 시공팀에서 도착 예정 시간을 별도로 연락드립니다."},
+  {mc:"sched",t:"실링팬은 도배 건조 완료(약 2~3일 후) 이후 체결 작업이 진행됩니다."},
+  {mc:"sched",t:"탄성코트와 조명은 같은 날 진행 가능합니다. 탄성 도포 후 건조 구간 이후에 조명 작업을 시작합니다."},
+  {mc:"sched",t:"줄눈 양생 후 24~48시간 경과 시 도배 진행을 권장합니다. 조명은 동일 날짜도 가능합니다."},
+  {mc:"sched",t:"무몰딩 도배는 반드시 입주청소 전에 시공해야 하며, 최소 7일 이상의 여유가 필요합니다."},
+  {mc:"sched",t:"조명 시공 첫날만 방문하시면 되며, 이후 공정은 비밀번호 공유로 비대면 진행 가능합니다."},
+  {mc:"sched",t:"변경 희망 날짜를 알려주시면 시공팀과 조율 후 가능 여부를 안내드리겠습니다."},
+  {mc:"sched",t:"무상 이벤트 조명 시공은 입주 완료 후 4~6개월 이내 일괄 진행 예정입니다."},
+  {mc:"comp",t:"불편을 드려 정말 죄송합니다. 어떤 상황인지 자세히 말씀해 주시면 즉시 확인하겠습니다."},
+  {mc:"comp",t:"말씀하신 내용 꼼꼼히 확인하겠습니다. 빠르게 해결책을 찾아 연락드릴게요."},
+  {mc:"comp",t:"이런 상황이 생겨 정말 죄송합니다. 담당자에게 즉시 전달하고 조치 방법을 알려드리겠습니다."},
+  {mc:"comp",t:"AS 기간 내 발생한 문제이므로 무상으로 처리해 드리겠습니다. 방문 일정을 잡아드릴게요."},
+  {mc:"comp",t:"사진이나 영상을 보내주시면 원인 파악에 도움이 됩니다. 확인 후 빠르게 안내드릴게요."},
+  {mc:"comp",t:"기다리셨을 텐데 정말 죄송합니다. 지금 바로 내부 확인 후 다시 연락드리겠습니다."},
+  {mc:"comp",t:"상담 내용이 달랐던 부분에 대해 사과드립니다. 정확한 내용을 다시 확인하고 안내드리겠습니다."},
+  {mc:"comp",t:"시공 품질에 대한 우려 감사합니다. 꼼꼼히 확인 후 필요한 경우 재시공 조치를 취하겠습니다."},
+  {mc:"comp",t:"연락이 늦어 불편드렸습니다. 지금부터 최우선으로 챙기겠습니다."},
+  {mc:"comp",t:"고객님의 소중한 의견을 겸허히 받아들이겠습니다. 더 나은 서비스를 위해 노력하겠습니다."},
+  {mc:"ref",t:"아쉽게도 해당 부분은 저희 시공 범위에 포함되지 않아 안내가 어렵습니다."},
+  {mc:"ref",t:"현재 일정이 모두 차 있어 해당 날짜는 어렵지만, 다른 날짜를 찾아봐 드릴게요."},
+  {mc:"ref",t:"타사 시공 건은 배선 구조를 파악하기 어려워 작업이 어렵습니다. 기존 업체에 문의하시길 권장드립니다."},
+  {mc:"ref",t:"2인치 매입등은 취급하지 않으며, 저희 최소 사이즈는 3인치입니다."},
+  {mc:"ref",t:"무상 기간이 지난 건은 유상 처리가 원칙이나, 상황을 확인 후 최대한 도와드리겠습니다."},
+  {mc:"ref",t:"라인조명은 목공 작업이 병행되어야 해서 사후 추가 시공이 어렵습니다. 사전에 말씀해 주셨다면 좋았을 것 같습니다."},
+  {mc:"ref",t:"환불 규정상 시공 6일 이내에는 환불이 어렵습니다. 자세한 내용은 계약서를 참고해 주세요."},
+  {mc:"ref",t:"당일 추가 항목은 자재 준비 문제로 바로 진행이 어렵습니다. 다음에 별도 방문으로 진행해 드릴게요."},
+  {mc:"ref",t:"죄송하지만 일요일 및 공휴일은 원칙적으로 시공이 어렵습니다. 다른 날짜를 제안해 드릴게요."},
+  {mc:"ref",t:"해당 부분은 건설사 시공 범위로, 아파트 지원센터에 문의하시는 것이 정확합니다."},
+  {mc:"close",t:"시공이 완료되면 최종 도면과 견적서를 전달드리니 확인 후 잔금 결제 부탁드립니다."},
+  {mc:"close",t:"시공 완료 후 이상이 없으신지 꼭 확인해 주시고, 문제가 있으면 바로 연락 주세요."},
+  {mc:"close",t:"후기를 입주자 카페에 올려주시고 캡처본을 보내주시면 3만원 할인을 적용해 드립니다."},
+  {mc:"close",t:"궁금하신 점이 생기면 언제든 카카오톡으로 연락 주세요. 항상 도움 드릴게요 😊"},
+  {mc:"close",t:"오늘 상담 도움이 되셨으면 좋겠습니다. 좋은 인테리어 완성되길 바랍니다!"},
+  {mc:"close",t:"시공 후 7일간 창문은 닫아 두시는 걸 권장드립니다. 도배 건조에 중요합니다."},
+  {mc:"close",t:"이후 AS가 필요하시면 언제든 접수해 주세요. 무상 기간 내는 부담 없이 연락 주세요!"},
+  {mc:"close",t:"감사합니다! 새 집에서 행복한 시간 보내세요 🏠"},
+  {mc:"close",t:"상담 내용을 요약해서 보내드리겠습니다. 추가로 확인이 필요하신 부분이 있으시면 말씀해 주세요."},
+  {mc:"close",t:"오늘 말씀 주신 내용 바탕으로 시공팀에 전달하겠습니다. 곧 일정 안내드릴게요!"},
+  {mc:"cons",t:"거실 조명은 공간 크기와 천장 높이를 고려하여 집중형과 확산형을 혼합 배치하는 것을 추천드립니다."},
+  {mc:"cons",t:"주방은 작업 공간이므로 주백색(4000K)이 적합하고, 거실·침실은 전구색(3000K)이 아늑한 분위기를 연출합니다."},
+  {mc:"cons",t:"실링팬은 거실 면적이 20평 이상이면 52인치 이상을 권장드립니다."},
+  {mc:"cons",t:"우물조명은 직각보다 라운드가 부드럽고 고급스러운 느낌을 주지만 비용이 30만원 정도 더 발생합니다."},
+  {mc:"cons",t:"전자식 스위치는 초기 비용이 높지만 밝기·색온도 조절로 공간 분위기를 자유롭게 바꿀 수 있어 만족도가 높습니다."},
+  {mc:"cons",t:"드레스룸이나 파우더룸은 자연광에 가까운 주백색(4000K)을 사용하시면 메이크업 시 색감 파악에 유리합니다."},
+  {mc:"cons",t:"간접조명 1줄과 2줄의 차이는 26만원이지만 공간감과 밝기 차이가 크므로 여유가 되시면 2줄을 권장드립니다."},
+  {mc:"cons",t:"무몰딩 도배는 청소 전 선행 시공이 필수이므로 입주 일정을 역산해 일정을 잡으시는 게 좋습니다."},
+  {mc:"cons",t:"복도와 현관은 센서등이 실용적이며, 거실·침실은 전자식 스위치로 분위기를 연출하시는 조합을 많이 선택하십니다."},
+  {mc:"cons",t:"처음 인테리어라면 기본 세트부터 시작하시고, 이후 단품 추가로 확장하시는 방법을 추천드립니다."},
+  {mc:"urg",t:"급하신 상황이군요! 지금 바로 담당자에게 전달하겠습니다. 잠시만 기다려 주세요."},
+  {mc:"urg",t:"안전 문제가 발생하셨다면 즉시 해당 스위치를 끄시고 저희에게 연락 주세요. 빠르게 조치하겠습니다."},
+  {mc:"urg",t:"입주가 코앞이신데 걱정이 크실 것 같아요. 가능한 가장 이른 날짜를 찾아보겠습니다."},
+  {mc:"urg",t:"취소 접수 요청 주셨군요. 지금 바로 처리 현황을 확인하고 결과를 알려드리겠습니다."},
+  {mc:"urg",t:"연락이 안 되어 불편하셨겠습니다. 지금 즉시 담당자에게 연락하겠습니다."},
+  {mc:"urg",t:"시공 당일 문제가 생기셨군요. 지금 바로 팀에 연락해서 빠르게 해결책을 찾겠습니다."},
+  {mc:"urg",t:"환불을 아직 못 받으셨다면 즉시 재확인하겠습니다. 처리 결과를 금일 중으로 안내드리겠습니다."},
+  {mc:"urg",t:"잔금 납부 전 추가 변경이 필요하신가요? 지금 바로 견적서를 수정해 드리겠습니다."},
+  {mc:"urg",t:"AS가 급하게 필요하신 경우 우선 접수 처리하여 가장 빠른 일정으로 방문 드리겠습니다."},
+  {mc:"urg",t:"예상치 못한 상황이 생기셨군요. 당황하지 마시고 차근차근 말씀해 주시면 함께 해결하겠습니다."},
+  // ── CS 매뉴얼 (내부 참고) ──────────────────────────
+  {mc:"manual_prod",t:"[제품] 실링팬 아르팬 vs 루씨에어: 계약 기본은 아르팬이며, 10만원 추가 시 루씨에어로 변경 가능. 루씨에어는 심플한 직선 날개 디자인으로 선호도가 높음."},
+  {mc:"manual_prod",t:"[제품] 아르팬 시공 주의: 모터 베이스와 날개 간섭 문제가 있으므로 시공 전 안내 자료(PDF) 반드시 확인."},
+  {mc:"manual_prod",t:"[제품] 오스람 매입등 타공 사이즈 — 3인치 집중형: 타공 7.5cm / 6W, 3인치 확산형: 타공 7.5cm / 8W, 4인치 확산형: 타공 10cm / 10W. 오차범위 0.1~2cm."},
+  {mc:"manual_prod",t:"[제품] 전자식 스위치: 화이트·블랙 2가지, 리모컨 포함. 유선 전원 공급 방식(건전지 아님). IOT + 리모컨 병행 업그레이드 완료."},
+  {mc:"manual_prod",t:"[제품] 전선 사양: TFR-CVV (0.75×2C, 0.75×3C, 1.5×3C). 세부 사항은 대유전선 사양서 참고."},
+  {mc:"manual_prod",t:"[제품] 화장실 히든센서: 2025년 11월 말~12월부터 신규 진입 아파트에 순차 적용. 해당 아파트: 평택 화양포레나(11/28), 영주 아이파크(11/30), 정읍 푸르지오(12/12), e편한세상 명덕역(26/1/2) 등."},
+  {mc:"manual_prod",t:"[제품] 우물천장 종류: 직각 / 라운드 / 무몰딩 / 건설사 기본 4가지. 기본은 직각이며, 옵션세대는 라운드 변경 시 추가 비용 없음. 결정되면 도면 수정."},
+  {mc:"manual_price",t:"[가격] 코타라 완납(선납) 이유: 인터넷 기준 60만원 중반대 상품을 54만원으로 공급하기 위함. 박람회에서 10만원 차이 설명 후 시공 확정 시 완납 수령."},
+  {mc:"manual_price",t:"[가격] 군산 옵션세대 욕실센서 2개 → 매입등 6개 또는 우물 한 줄 추가 변경 가능. 정상가 26만원이나 추가 6만원만 부담."},
+  {mc:"manual_price",t:"[가격] 커튼박스 가격: 11만원으로 변경됨."},
+  {mc:"manual_price",t:"[가격] 추가 할인 요청 대응: 임의 판단 불가 — 대표님 확인 사항. 1차: 냉장고장 2구 등 사은품 제안. 취소 우려 건은 우선순위 신속 연락."},
+  {mc:"manual_as",t:"[AS] 실링팬 설치 후 화재감지기 오작동: 실링팬 직접 원인 아님. 광전식 감지기는 먼지에 취약 → 클리닝 우선 권장. 청소 후 지속 시 신규 모델 교체 권장."},
+  {mc:"manual_as",t:"[AS] 실링팬 완전 차단 방법: L2(거실·침실1) 차단기를 내렸다가 10분 이상 후 올리면 메모리 리셋. 바로 올리면 이전 설정 재작동."},
+  {mc:"manual_as",t:"[AS] 루씨에어3 리모컨 페어링: ① 차단기 1분 차단 후 재투입 ② 20초 이내에 동기화 버튼(0/전원) 10초 길게 누름 ③ 작동 확인. 반복 시 시간 늘려 2~3회 재시도. 동영상: lucciair.kr/default/business/pairing.php"},
+  {mc:"manual_as",t:"[AS] 전자스위치 교체 비용: 고객 자재 준비 시 출장비 5만원. 자재 포함(보증 경과) 시 출장비 5만원 + 전자스위치 15만원 = 20만원."},
+  {mc:"manual_as",t:"[AS] 루씨에어 AS 접수·발주: as.ubob.biz (USSOFT A/S). 담당자 02-2088-8829. 최초 이용 시 전화로 원격 설치 요청."},
+  {mc:"manual_as",t:"[AS] 우물천장 도배 찢어짐 하자: 도배 시 한쪽 면 막힌 상태로 마감 후 실링팬 설치 시 해당 면 오려냄으로 발생. 도배사 방문 보수 조치. 시공팀·도배사 간 작업 순서 확인 필요."},
+  {mc:"manual_proc",t:"[시공] 환풍구 이동 비용: 설치비 5만원. 내부 주름관 확인 → 원하는 위치 타공(5~6인치) → 기존 구멍 마감. 기존 구멍 도배 불포함. 강성 고객은 대표님 확인 후 처리."},
+  {mc:"manual_proc",t:"[시공] AS 방문 일정: 기사님 해피콜로 통화 확정. 해피콜까지 3~7일 소요. 업체 일정에 따라 다소 늦어질 수 있음."},
+  {mc:"manual_proc",t:"[시공] 입주 전 세대 문 개방: 임의 개방 불가. 입주지원센터를 통한 정식 절차 필요. 시공 일정 확정을 위해 준공 승인일·잔금 납부일·입주청소 일정 확인 필요."},
+  {mc:"manual_proc",t:"[시공] 복도 2구 무상 서비스 기준: 옵션행사(25/9/5~7) 원칙상 미적용. 본행사(26/2/7~8) 계약 무관 전원 무상. 예외: 옵션행사 착오 계약자 전원에게 추가 적용."},
+  {mc:"manual_proc",t:"[시공] 실링팬 미출고 세대: CS업무방 시즌2 자료 기준 빨간색 표시 세대는 3월 5일 마감 예정."},
+  {mc:"manual_proc",t:"[시공] (군산) 세대 비밀번호: 절대 입주민 오픈 불가. 이사 3일 전 또는 잔금 납부 이전 입주민 동반 방문 불가. 주관사 보유 세대는 요청 시 확인 가능."},
+  {mc:"manual_claim",t:"[클레임] 일당 보상 요구 대응: 임의 판단 불가, 대표님 확인 후 처리. 강성 클레임(블로그·카페 압박 등) 반드시 대표님 전달. 환불: 아르떼 계약금→아르떼 직접 환불, 나머지→주관사 환불."},
+  {mc:"manual_claim",t:"[클레임] 검단호반 3차 문의: 금액·도면은 옥화 실장님께 먼저 확인 후 안내. 임의 견적 불가. 시티오씨엘 6단지(299만원)는 무몰딩 기준 아님—구성 달라 동일 비교 어렵다고 안내."},
 ];
 
-// ── 복사 함수 ───────────────────────────────────────────
-function doCopy(btn, text) {
-  const plain = text.replace(/<em>|<\/em>|<b>|<\/b>/g, '');
-  const done = () => {
-    btn.textContent = '✅ 복사됨';
-    btn.classList.add('done');
-    setTimeout(() => { btn.textContent = '📋 복사'; btn.classList.remove('done'); }, 1800);
-  };
-  try {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(plain).then(done).catch(() => legacyCopy(plain, done));
-    } else {
-      legacyCopy(plain, done);
-    }
-  } catch(e) { legacyCopy(plain, done); }
-}
-function legacyCopy(text, cb) {
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.cssText = 'position:fixed;top:-999px;left:-999px;opacity:0';
-  document.body.appendChild(ta);
-  ta.focus(); ta.select();
-  try { document.execCommand('copy'); } catch(e) {}
-  document.body.removeChild(ta);
-  cb();
+// ═══════════════════════════════════════════════════
+// 유틸
+// ═══════════════════════════════════════════════════
+const secLabel = {sch:'시공 일정',est:'비용·견적',prod:'제품·구성',pay:'결제·입금',can:'취소·환불',as:'AS·하자',how:'사용·설치',rev:'후기·이벤트',doc:'서류'};
+const secBadge = {sch:'b-sch',est:'b-est',prod:'b-prod',pay:'b-pay',can:'b-can',as:'b-as',how:'b-how',rev:'b-rev',doc:'b-doc'};
+const mcLabel  = {greet:'첫 인사',emp:'공감·경청',ptip:'제품 안내',price:'가격 안내',sched:'일정 안내',comp:'컴플레인',ref:'거절 안내',close:'마무리',cons:'컨설팅',urg:'긴급 상황',manual_prod:'매뉴얼_제품',manual_price:'매뉴얼_가격',manual_as:'매뉴얼_AS',manual_proc:'매뉴얼_시공',manual_claim:'매뉴얼_클레임'};
+const mcBadge  = {greet:'b-greet',emp:'b-emp',ptip:'b-ptip',price:'b-price',sched:'b-sched',comp:'b-comp',ref:'b-ref',close:'b-close',cons:'b-cons',urg:'b-urg',manual_prod:'b-manual',manual_price:'b-manual',manual_as:'b-manual',manual_proc:'b-manual',manual_claim:'b-manual-claim'};
+
+function stripTags(s){ return s.replace(/<[^>]+>/g,''); }
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2200);
 }
 
-// ── 이벤트 위임: 복사 버튼 ──────────────────────────────
-document.addEventListener('click', function(e) {
+function doCopy(btn, text){
+  const plain = stripTags(text);
+  const done = ()=>{
+    btn.textContent='✅ 복사됨'; btn.classList.add('done');
+    setTimeout(()=>{ btn.textContent='📋 복사'; btn.classList.remove('done'); },1800);
+  };
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(plain).then(done).catch(()=>legacyCopy(plain,done));
+  } else { legacyCopy(plain,done); }
+}
+function legacyCopy(text,cb){
+  const ta=document.createElement('textarea');
+  ta.value=text; ta.style.cssText='position:fixed;top:-999px;left:-999px;opacity:0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try{document.execCommand('copy');}catch(e){}
+  document.body.removeChild(ta); cb();
+}
+
+// ═══════════════════════════════════════════════════
+// 카드 렌더
+// ═══════════════════════════════════════════════════
+function makeCard(type, sec, idx){
+  const div = document.createElement('div');
+  div.className = 'card';
+
+  if(type==='faq'){
+    const item = FAQ[sec][idx];
+    div.dataset.sec = sec;
+    div.dataset.search = (item.q+' '+stripTags(item.a)).toLowerCase();
+    const copyText = item.q+'\nA. '+stripTags(item.a);
+
+    const num = document.createElement('div'); num.className='card-num'; num.textContent=idx+1;
+    const body = document.createElement('div'); body.className='card-body';
+    const q = document.createElement('div'); q.className='card-q'; q.textContent=item.q;
+    const a = document.createElement('div'); a.className='card-a'; a.innerHTML='A. '+item.a;
+    const foot = document.createElement('div'); foot.className='card-foot';
+
+    const badge = document.createElement('span'); badge.className='badge '+secBadge[sec]; badge.textContent=secLabel[sec];
+    const btnCopy = document.createElement('button'); btnCopy.className='copy-btn'; btnCopy.textContent='📋 복사'; btnCopy.setAttribute('data-copy',copyText);
+    const btnEdit = document.createElement('button'); btnEdit.className='edit-btn'; btnEdit.textContent='✏️ 수정'; btnEdit.onclick=()=>openEdit('faq',sec,idx);
+    const btnDel  = document.createElement('button'); btnDel.className='del-btn';  btnDel.textContent='🗑 삭제';  btnDel.onclick=()=>deleteItem('faq',sec,idx);
+
+    foot.append(badge, btnCopy, btnEdit, btnDel);
+    body.append(q, a, foot);
+    div.append(num, body);
+
+  } else {
+    const item = MENTS[idx];
+    div.dataset.mc = item.mc;
+    div.dataset.search = item.t.toLowerCase();
+
+    const num = document.createElement('div'); num.className='card-num'; num.textContent=idx+1;
+    const body = document.createElement('div'); body.className='card-body';
+    const q = document.createElement('div'); q.className='card-q'; q.textContent=item.t;
+    const foot = document.createElement('div'); foot.className='card-foot';
+
+    const badge = document.createElement('span'); badge.className='badge '+mcBadge[item.mc]; badge.textContent=mcLabel[item.mc];
+    const btnCopy = document.createElement('button'); btnCopy.className='copy-btn'; btnCopy.textContent='📋 복사'; btnCopy.setAttribute('data-copy',item.t);
+    const btnEdit = document.createElement('button'); btnEdit.className='edit-btn'; btnEdit.textContent='✏️ 수정'; btnEdit.onclick=()=>openEdit('ment',null,idx);
+    const btnDel  = document.createElement('button'); btnDel.className='del-btn';  btnDel.textContent='🗑 삭제';  btnDel.onclick=()=>deleteItem('ment',null,idx);
+
+    foot.append(badge, btnCopy, btnEdit, btnDel);
+    body.append(q, foot);
+    div.append(num, body);
+  }
+  return div;
+}
+
+function renderAll(){
+  // FAQ
+  Object.keys(FAQ).forEach(sec=>{
+    const grid = document.getElementById('cg-'+sec);
+    grid.innerHTML='';
+    FAQ[sec].forEach((_,i)=> grid.appendChild(makeCard('faq',sec,i)));
+  });
+  // MENTS
+  const mg = document.getElementById('mentGrid');
+  mg.innerHTML='';
+  MENTS.forEach((_,i)=> mg.appendChild(makeCard('ment',null,i)));
+  applyFilter();
+}
+
+// ═══════════════════════════════════════════════════
+// 이벤트 위임: 복사 버튼
+// ═══════════════════════════════════════════════════
+document.addEventListener('click', e=>{
   const btn = e.target.closest('.copy-btn');
-  if (!btn) return;
+  if(!btn) return;
   e.stopPropagation();
   const text = btn.getAttribute('data-copy');
-  if (text) doCopy(btn, text);
+  if(text) doCopy(btn, text);
 });
 
-// ── 카드 생성 ──────────────────────────────────────────
-const secBadge = {sch:'b-sch',est:'b-est',prod:'b-prod',pay:'b-pay',can:'b-can',as:'b-as',how:'b-how',rev:'b-rev',doc:'b-doc'};
-const secLabel = {sch:'시공 일정',est:'비용·견적',prod:'제품·구성',pay:'결제·입금',can:'취소·환불',as:'AS·하자',how:'사용·설치',rev:'후기·이벤트',doc:'서류'};
-const mcBadge  = {greet:'b-greet',emp:'b-emp',ptip:'b-ptip',price:'b-price',sched:'b-sched',comp:'b-comp',ref:'b-ref',close:'b-close',cons:'b-cons',urg:'b-urg'};
-const mcLabel  = {greet:'첫 인사',emp:'공감·경청',ptip:'제품 안내',price:'가격 안내',sched:'일정 안내',comp:'컴플레인',ref:'거절 안내',close:'마무리',cons:'컨설팅',urg:'긴급 상황'};
+// ═══════════════════════════════════════════════════
+// 삭제
+// ═══════════════════════════════════════════════════
+function deleteItem(type, sec, idx){
+  if(!confirm('이 항목을 삭제할까요?')) return;
+  if(type==='faq'){ FAQ[sec].splice(idx,1); }
+  else            { MENTS.splice(idx,1); }
+  renderAll();
+  showToast('삭제되었습니다.');
+}
 
-// FAQ 카드
-Object.entries(FAQ).forEach(([sec, items]) => {
-  const grid = document.getElementById('cg-' + sec);
-  if (!grid) return;
-  items.forEach((item, i) => {
-    const plain = item.q + '\nA. ' + item.a.replace(/<em>|<\/em>|<b>|<\/b>/g, '');
-    const div = document.createElement('div');
-    div.className = 'card';
-    div.dataset.sec = sec;
-    div.dataset.search = (item.q + ' ' + item.a.replace(/<[^>]+>/g, '')).toLowerCase();
+// ═══════════════════════════════════════════════════
+// 모달 (추가 / 수정)
+// ═══════════════════════════════════════════════════
+let modalMode = null; // {type, sec, idx} or {type:'add', sec, isMent}
+const modal    = document.getElementById('editModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalSec   = document.getElementById('modalSec');
+const modalMc    = document.getElementById('modalMc');
+const modalQ     = document.getElementById('modalQ');
+const modalA     = document.getElementById('modalA');
+const mentCatRow = document.getElementById('mentCatRow');
+const answerRow  = document.getElementById('answerRow');
+const lblSec     = document.getElementById('lblSec');
+const lblQ       = document.getElementById('lblQ');
 
-    const num   = document.createElement('div'); num.className = 'card-num'; num.textContent = i + 1;
-    const body  = document.createElement('div'); body.className = 'card-body';
-    const q     = document.createElement('div'); q.className = 'card-q'; q.textContent = item.q;
-    const a     = document.createElement('div'); a.className = 'card-a'; a.innerHTML = 'A. ' + item.a;
-    const foot  = document.createElement('div'); foot.className = 'card-foot';
-    const badge = document.createElement('span'); badge.className = 'badge ' + secBadge[sec]; badge.textContent = secLabel[sec];
-    const btn   = document.createElement('button'); btn.className = 'copy-btn'; btn.textContent = '📋 복사'; btn.setAttribute('data-copy', plain);
+function openEdit(type, sec, idx){
+  modalMode = {type, sec, idx, action:'edit'};
+  if(type==='faq'){
+    modalTitle.textContent = 'FAQ 항목 수정';
+    lblSec.style.display=''; modalSec.style.display=''; mentCatRow.style.display='none'; answerRow.style.display='';
+    lblQ.textContent='질문';
+    modalSec.value = sec;
+    modalQ.value = FAQ[sec][idx].q;
+    modalA.value = FAQ[sec][idx].a;
+  } else {
+    modalTitle.textContent = '상담 멘트 수정';
+    lblSec.style.display='none'; modalSec.style.display='none'; mentCatRow.style.display=''; answerRow.style.display='none';
+    lblQ.textContent='멘트 내용';
+    modalMc.value = MENTS[idx].mc;
+    modalQ.value  = MENTS[idx].t;
+  }
+  modal.classList.add('open');
+}
 
-    foot.appendChild(badge); foot.appendChild(btn);
-    body.appendChild(q); body.appendChild(a); body.appendChild(foot);
-    div.appendChild(num); div.appendChild(body);
-    grid.appendChild(div);
+function openAdd(type, sec){
+  modalMode = {type, sec, action:'add'};
+  if(type==='faq'){
+    modalTitle.textContent = 'FAQ 항목 추가';
+    lblSec.style.display=''; modalSec.style.display=''; mentCatRow.style.display='none'; answerRow.style.display='';
+    lblQ.textContent='질문';
+    modalSec.value = sec; modalQ.value=''; modalA.value='';
+  } else {
+    modalTitle.textContent = '상담 멘트 추가';
+    lblSec.style.display='none'; modalSec.style.display='none'; mentCatRow.style.display=''; answerRow.style.display='none';
+    lblQ.textContent='멘트 내용';
+    modalMc.value='greet'; modalQ.value='';
+  }
+  modal.classList.add('open');
+}
+
+document.getElementById('modalCancel').onclick = ()=> modal.classList.remove('open');
+modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('open'); });
+
+document.getElementById('modalSave').onclick = ()=>{
+  const {type, sec, idx, action} = modalMode;
+  if(type==='faq'){
+    const newSec = modalSec.value;
+    const newQ = modalQ.value.trim();
+    const newA = modalA.value.trim();
+    if(!newQ||!newA){ alert('질문과 답변을 모두 입력해 주세요.'); return; }
+    if(action==='edit'){
+      if(newSec !== sec){
+        FAQ[sec].splice(idx,1);
+        FAQ[newSec].push({q:newQ, a:newA});
+      } else {
+        FAQ[sec][idx] = {q:newQ, a:newA};
+      }
+    } else {
+      FAQ[newSec].push({q:newQ, a:newA});
+    }
+  } else {
+    const newMc = modalMc.value;
+    const newT  = modalQ.value.trim();
+    if(!newT){ alert('멘트 내용을 입력해 주세요.'); return; }
+    if(action==='edit'){ MENTS[idx] = {mc:newMc, t:newT}; }
+    else               { MENTS.push({mc:newMc, t:newT}); }
+  }
+  modal.classList.remove('open');
+  renderAll();
+  showToast(action==='edit' ? '수정되었습니다.' : '추가되었습니다.');
+};
+
+// + 항목 추가 버튼
+document.querySelectorAll('.sh-add').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const sec = btn.dataset.sec;
+    openAdd(sec==='ment' ? 'ment' : 'faq', sec==='ment' ? null : sec);
   });
 });
 
-// 멘트 카드
-const mentGrid = document.getElementById('mentGrid');
-MENTS.forEach((m, i) => {
-  const div   = document.createElement('div');
-  div.className = 'card';
-  div.dataset.mc = m.mc;
-  div.dataset.search = m.t.toLowerCase();
+// ═══════════════════════════════════════════════════
+// JSON 내보내기 / 불러오기
+// ═══════════════════════════════════════════════════
+document.getElementById('btnExport').onclick = ()=>{
+  const data = JSON.stringify({FAQ, MENTS}, null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'arte_faq_백업_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  showToast('백업 파일을 저장했습니다.');
+};
 
-  const num   = document.createElement('div'); num.className = 'card-num'; num.textContent = i + 1;
-  const body  = document.createElement('div'); body.className = 'card-body';
-  const q     = document.createElement('div'); q.className = 'card-q'; q.textContent = m.t;
-  const foot  = document.createElement('div'); foot.className = 'card-foot';
-  const badge = document.createElement('span'); badge.className = 'badge ' + mcBadge[m.mc]; badge.textContent = mcLabel[m.mc];
-  const btn   = document.createElement('button'); btn.className = 'copy-btn'; btn.textContent = '📋 복사'; btn.setAttribute('data-copy', m.t);
+document.getElementById('btnImport').onclick = ()=> document.getElementById('fileInput').click();
+document.getElementById('fileInput').onchange = e=>{
+  const file = e.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ev=>{
+    try{
+      const data = JSON.parse(ev.target.result);
+      if(!data.FAQ || !data.MENTS) throw new Error('형식 오류');
+      FAQ   = data.FAQ;
+      MENTS = data.MENTS;
+      renderAll();
+      showToast('백업 불러오기 완료!');
+    } catch(err){
+      alert('백업 파일 형식이 올바르지 않습니다.\n' + err.message);
+    }
+    e.target.value='';
+  };
+  reader.readAsText(file);
+};
 
-  foot.appendChild(badge); foot.appendChild(btn);
-  body.appendChild(q); body.appendChild(foot);
-  div.appendChild(num); div.appendChild(body);
-  mentGrid.appendChild(div);
-});
+// ═══════════════════════════════════════════════════
+// 필터 / 검색
+// ═══════════════════════════════════════════════════
+let curSec='all', curMc='all', gSearch='', mSearch='';
 
-// ── 필터·검색 ──────────────────────────────────────────
-let curSec = 'all', curMc = 'all', gSearch = '', mSearch = '';
+function applyFilter(){
+  const faqCards  = document.querySelectorAll('#faqArea .card');
+  const mentCards = document.querySelectorAll('#mentGrid .card');
+  const faqArea   = document.getElementById('faqArea');
+  const mentArea  = document.getElementById('mentArea');
 
-const faqSecs   = document.querySelectorAll('.faq-sec');
-const faqArea   = document.getElementById('faqArea');
-const mentArea  = document.getElementById('mentArea');
-const noResult  = document.getElementById('noResult');
-const mCntEl    = document.getElementById('mCnt');
-
-function render(){
-  const faqCards = document.querySelectorAll('#faqArea .card');
-  const mentCards = document.querySelectorAll('#mentArea .card');
-
-  // FAQ 카드 표시
-  let faqVis = 0;
+  let faqVis=0;
   faqCards.forEach(c=>{
-    const secMatch = curSec==='all' || curSec==='ment' || c.dataset.sec===curSec;
-    const searchMatch = !gSearch || c.dataset.search.includes(gSearch);
-    const show = secMatch && searchMatch;
-    c.classList.toggle('hidden', !show);
-    if(show) faqVis++;
+    const ok = (curSec==='all'||curSec==='ment'||c.dataset.sec===curSec)
+            && (!gSearch||c.dataset.search.includes(gSearch));
+    c.classList.toggle('hidden',!ok);
+    if(ok) faqVis++;
   });
-
-  // FAQ 섹션 헤더 표시
-  faqSecs.forEach(s=>{
-    const vis = s.querySelectorAll('.card:not(.hidden)').length > 0;
-    s.style.display = (curSec==='ment') ? 'none' : (vis ? '' : 'none');
+  document.querySelectorAll('.faq-sec').forEach(s=>{
+    const v = s.querySelectorAll('.card:not(.hidden)').length>0;
+    s.style.display = (curSec==='ment') ? 'none' : (v?'':'none');
   });
   faqArea.style.display = (curSec==='ment') ? 'none' : '';
 
-  // 멘트 카드 표시
-  let mentVis = 0;
+  let mentVis=0;
   mentCards.forEach(c=>{
-    const mcMatch = curMc==='all' || c.dataset.mc===curMc;
-    const msMatch = !mSearch || c.dataset.search.includes(mSearch);
-    const gsMatch = !gSearch || c.dataset.search.includes(gSearch);
-    const show = mcMatch && msMatch && gsMatch;
-    c.classList.toggle('hidden', !show);
-    if(show) mentVis++;
+    const ok = (curMc==='all'||c.dataset.mc===curMc)
+            && (!mSearch||c.dataset.search.includes(mSearch))
+            && (!gSearch||c.dataset.search.includes(gSearch));
+    c.classList.toggle('hidden',!ok);
+    if(ok) mentVis++;
   });
-  mCntEl.textContent = mentVis + '개';
+  document.getElementById('mCnt').textContent = mentVis+'개';
+  mentArea.style.display = (curSec==='all'||curSec==='ment') ? '' : 'none';
 
-  mentArea.style.display = (curSec==='all' || curSec==='ment') ? '' : 'none';
-
-  // no result
-  const total = (curSec==='ment' ? 0 : faqVis) + (curSec==='all'||curSec==='ment' ? mentVis : 0);
-  noResult.style.display = (gSearch && total===0) ? 'block' : 'none';
+  const total = (curSec==='ment'?0:faqVis)+(curSec==='all'||curSec==='ment'?mentVis:0);
+  document.getElementById('noResult').style.display = (gSearch&&total===0)?'block':'none';
 }
 
-// 상단 필터
 document.querySelectorAll('.fb-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.fb-btn').forEach(b=>b.classList.remove('on'));
-    btn.classList.add('on');
-    curSec = btn.dataset.sec;
-    render();
+    btn.classList.add('on'); curSec=btn.dataset.sec; applyFilter();
   });
 });
-
-// 멘트 카테고리 필터
 document.querySelectorAll('.mcat-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.mcat-btn').forEach(b=>b.classList.remove('on'));
-    btn.classList.add('on');
-    curMc = btn.dataset.mc;
-    render();
+    btn.classList.add('on'); curMc=btn.dataset.mc; applyFilter();
   });
 });
+document.getElementById('gSearch').addEventListener('input',e=>{ gSearch=e.target.value.trim().toLowerCase(); applyFilter(); });
+document.getElementById('mSearch').addEventListener('input',e=>{ mSearch=e.target.value.trim().toLowerCase(); applyFilter(); });
 
-// 전체 검색
-document.getElementById('gSearch').addEventListener('input', e=>{
-  gSearch = e.target.value.trim().toLowerCase();
-  render();
-});
-
-// 멘트 검색
-document.getElementById('mSearch').addEventListener('input', e=>{
-  mSearch = e.target.value.trim().toLowerCase();
-  render();
-});
-
-render();
+// 최초 렌더
+renderAll();
 </script>
 </body>
 </html>
