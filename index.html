@@ -127,6 +127,30 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;ba
 .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#2a2520;color:#fff;font-size:12px;padding:9px 20px;border-radius:20px;opacity:0;transition:all .3s;z-index:999;pointer-events:none;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
+/* ── 상세 패널 ── */
+.detail-toggle{border:1px solid var(--bd);border-radius:6px;padding:3px 9px;font-size:11px;background:#f5f0e8;color:#8c5a10;border-color:#e8cfaa;cursor:pointer;transition:all .15s;white-space:nowrap}
+.detail-toggle:hover{background:#e8cfaa;color:#5a3008}
+.detail-toggle.open{background:#2a2520;color:#fff;border-color:#2a2520}
+.detail-panel{display:none;margin-top:10px;padding:14px 16px;background:#faf8f4;border-radius:8px;border:1px solid #e8e0d0;font-size:12.5px;color:#4a4840;line-height:1.7}
+.detail-panel.open{display:block;animation:dp-fade .2s ease}
+@keyframes dp-fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.detail-panel p{margin-bottom:8px}
+.detail-panel p:last-child{margin-bottom:0}
+.detail-panel strong{color:#1a1a18;font-weight:600}
+.detail-panel ul{margin:6px 0 10px;padding-left:0;list-style:none}
+.detail-panel li{position:relative;padding-left:16px;margin-bottom:5px}
+.detail-panel li::before{content:"";position:absolute;left:2px;top:8px;width:5px;height:5px;border-radius:50%;background:#b8a88a}
+.detail-panel table{width:100%;border-collapse:collapse;margin:8px 0;font-size:12px}
+.detail-panel th,.detail-panel td{text-align:left;padding:7px 10px;border-bottom:1px solid #e8e0d0}
+.detail-panel th{background:#f0ede7;font-weight:700;color:#1a1a18;font-size:11.5px}
+.detail-panel td{color:#4a4840}
+.detail-panel tr:last-child td{border-bottom:none}
+.detail-panel .note{border-radius:7px;padding:10px 12px;margin:8px 0;font-size:12px;display:flex;gap:8px;align-items:flex-start}
+.detail-panel .note.warn{background:#fff0f0;color:#7d2530;border:1px solid #e8c0c0}
+.detail-panel .note.tip{background:#eefaf5;color:#1a4f44;border:1px solid #a0d8bc}
+.detail-panel .note-icon{flex-shrink:0;font-weight:800;font-size:13px;line-height:1.5}
+.detail-label{font-size:10px;font-weight:700;color:#8c5a10;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;display:block}
+
 @media(max-width:640px){.hd,.sw,.fb,.main{padding-left:12px;padding-right:12px}}
 </style>
 </head>
@@ -268,6 +292,202 @@ body{font-family:'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;ba
 // ═══════════════════════════════════════════════════
 // 데이터
 // ═══════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
+// 상세 내용 (매뉴얼 기반) — key는 카테고리_인덱스 형태로 makeCard에서 주입
+// ═══════════════════════════════════════════════════
+const DETAIL = {
+  // ── 시공 일정 ──
+  'sch_0': `<span class="detail-label">📋 상세 안내</span>
+    <p>일정 확정에 필요한 정보를 미리 준비해 주세요.</p>
+    <ul>
+      <li>아파트 준공 승인일</li>
+      <li>잔금 납부(입주) 예정일</li>
+      <li>입주청소 예정일</li>
+    </ul>
+    <div class="note tip"><span class="note-icon">i</span><div>카톡 상담 중 1시간 이상 회신이 없으면 종료 처리하고, 유선 2회 시도 후 부재 시 기록에 남깁니다.</div></div>`,
+  'sch_1': `<span class="detail-label">📋 상세 안내</span>
+    <p>변경 요청은 <strong>최소 3일 전</strong>을 권장합니다. 당일 변경은 기사 배차가 확정된 상태라 어렵습니다.</p>`,
+  'sch_2': `<span class="detail-label">📋 상세 안내</span>
+    <p>방문 전날 저녁 또는 당일 아침에 해피콜을 드립니다. AS 건은 해피콜까지 <strong>3~7일</strong> 소요될 수 있습니다.</p>`,
+  'sch_3': `<span class="detail-label">📋 공정별 소요 기간</span>
+    <table><tr><th>공정</th><th>소요 기간</th></tr>
+      <tr><td>조명만</td><td>1일</td></tr>
+      <tr><td>도배 + 조명</td><td>2~3일</td></tr>
+      <tr><td>전체(도배+목공+조명+실링팬)</td><td>3~5일</td></tr>
+    </table>`,
+  'sch_4': `<span class="detail-label">📋 탄성코트 시공 순서</span>
+    <p>탄성코트 도포 → 건조 구간 이후 조명 작업 시작. 동일 날 진행 가능하며, 탄성코트 위에 직접 올라서지 않아도 됩니다.</p>`,
+  'sch_5': `<span class="detail-label">📋 줄눈·도배·조명 순서</span>
+    <ul>
+      <li>줄눈 양생: 보통 24~48시간</li>
+      <li>양생 완료 후 도배 진행 권장</li>
+      <li>조명 시공은 줄눈과 동일 날짜도 가능</li>
+    </ul>`,
+  'sch_6': `<span class="detail-label">📋 실링팬 설치 순서</span>
+    <ul>
+      <li>도배 시공 → 건조(2~3일) → 실링팬 체결</li>
+      <li>앙카 보강·배선은 도배 전 사전 완료</li>
+      <li>체결 시 먼지 거의 없음 / 별도 청소비 없음</li>
+    </ul>`,
+  'sch_7': `<span class="detail-label">📋 무몰딩 도배 주의사항</span>
+    <div class="note warn"><span class="note-icon">!</span><div>무몰딩 도배는 <strong>반드시 입주청소 전</strong>에 시공해야 합니다. 최소 7일 이상 여유를 두세요.</div></div>`,
+  'sch_8': `<span class="detail-label">📋 방문 필요 일정</span>
+    <table><tr><th>공정</th><th>방문 필요 여부</th></tr>
+      <tr><td>조명 시공 첫날</td><td>✅ 방문 필요 (매입등 위치 확인)</td></tr>
+      <tr><td>이후 공정</td><td>비밀번호 공유로 비대면 진행 가능</td></tr>
+    </table>`,
+  'sch_9': `<span class="detail-label">📋 도배 건조 주의</span>
+    <div class="note warn"><span class="note-icon">!</span><div>도배 후 최소 7일간 창문을 열지 마세요. 급격한 환기는 도배지 들뜸의 원인이 됩니다.</div></div>`,
+  'sch_10': `<span class="detail-label">📋 보양작업비 기준</span>
+    <table><tr><th>상황</th><th>보양작업비</th></tr>
+      <tr><td>입주청소 전 시공</td><td>없음 (원칙)</td></tr>
+      <tr><td>입주청소 완료 후 시공</td><td>10만원 발생</td></tr>
+      <tr><td>고객 직접 청소 시</td><td>현장 확인 후 조율</td></tr>
+    </table>`,
+  'sch_11': `<span class="detail-label">📋 이벤트 서비스 시공 기준</span>
+    <table><tr><th>행사</th><th>일자</th><th>서비스</th></tr>
+      <tr><td>옵션행사</td><td>25/9/5~7</td><td>원칙상 이벤트 미적용</td></tr>
+      <tr><td>본행사</td><td>26/2/7~8</td><td>계약 무관 복도 2구 무상</td></tr>
+    </table>
+    <div class="note warn"><span class="note-icon">!</span><div>예외: 옵션행사 착오 계약자 전원에게 복도 2구 서비스 추가 적용.</div></div>`,
+
+  // ── 비용·견적 ──
+  'est_1': `<span class="detail-label">📋 A세트 구성 상세</span>
+    <table><tr><th>스위치</th><th>가격</th></tr>
+      <tr><td>텀블러 스위치</td><td>43만원</td></tr>
+      <tr><td>전자식 + 리모컨</td><td>60만원</td></tr>
+    </table>
+    <p>단품 매입등 추가: 개당 3만원 / 배선 신설 필요 시 3~5만원 추가</p>`,
+  'est_2': `<span class="detail-label">📋 센서세트 구성</span>
+    <table><tr><th>구성</th><th>가격</th></tr>
+      <tr><td>간접센서세트 (욕실 2곳 + 신발장 하부)</td><td>29만원</td></tr>
+      <tr><td>단품 (개당)</td><td>11만원</td></tr>
+    </table>`,
+  'est_3': `<span class="detail-label">📋 우물조명 가격 기준</span>
+    <table><tr><th>종류</th><th>가격</th><th>비고</th></tr>
+      <tr><td>직각 우물</td><td>80만원</td><td rowspan="2">한 변이 4M 이상 시 +10만원</td></tr>
+      <tr><td>라운드 우물</td><td>110만원</td></tr>
+      <tr><td>2줄 추가</td><td>+26만원</td><td></td></tr>
+    </table>
+    <p>옵션세대는 직각→라운드 변경 시 <strong>추가 비용 없음</strong>.</p>`,
+  'est_7': `<span class="detail-label">📋 박람회 vs 카톡 가격</span>
+    <p>박람회 할인가는 행사 기간에만 적용됩니다. 카톡 상담가는 견적서로 안내드립니다.</p>
+    <div class="note tip"><span class="note-icon">i</span><div>코타라는 인터넷 기준 60만원 중반대 상품을 선납 54만원에 공급합니다. 시공 확정 시 완납 수령 (중간 변심 방지).</div></div>`,
+  'est_10': `<span class="detail-label">📋 추가 할인 요청 대응</span>
+    <div class="note warn"><span class="note-icon">!</span><div>할인 여부는 <strong>대표님 확인 사항</strong>입니다. 임의로 답변하지 않습니다.</div></div>
+    <ul>
+      <li>1차 대응: 사은품 추가 제안 (예: 냉장고장 2구)</li>
+      <li>사은품이 통하지 않는 경우 → 대표님 확인 후 회신</li>
+      <li>취소 우려 건은 우선순위로 신속 연락</li>
+    </ul>`,
+
+  // ── 제품·구성 ──
+  'prod_0': `<span class="detail-label">📋 실링팬 비교</span>
+    <table><tr><th>구분</th><th>아르팬</th><th>루씨에어</th></tr>
+      <tr><td>가격</td><td>기본</td><td>+10만원</td></tr>
+      <tr><td>날개 디자인</td><td>살짝 곡선 라인</td><td>심플한 직선</td></tr>
+      <tr><td>선호도</td><td>—</td><td>심플 디자인 대세, 판매량 높음</td></tr>
+    </table>
+    <div class="note warn"><span class="note-icon">!</span><div>아르팬 시공 시 모터 베이스와 날개 간섭 문제가 있어 시공 전 안내 자료(PDF) 반드시 확인.</div></div>`,
+  'prod_1': `<span class="detail-label">📋 색온도 기준</span>
+    <table><tr><th>색상</th><th>K값</th><th>특징</th></tr>
+      <tr><td>전구색</td><td>3000K</td><td>따뜻한 노란빛, 아늑함</td></tr>
+      <tr><td>전주백색</td><td>3500K</td><td>중간 톤 (별도 발주)</td></tr>
+      <tr><td>주백색</td><td>4000K</td><td>자연광, 중간</td></tr>
+      <tr><td>주광색</td><td>6500K</td><td>차갑고 밝음, 집중력</td></tr>
+    </table>`,
+  'prod_3': `<span class="detail-label">📋 매입등 타공 사이즈</span>
+    <table><tr><th>종류</th><th>타공</th><th>사양</th></tr>
+      <tr><td>3인치 집중형</td><td>7.5cm</td><td>6W</td></tr>
+      <tr><td>3인치 확산형</td><td>7.5cm</td><td>8W</td></tr>
+      <tr><td>4인치 확산형</td><td>10cm</td><td>10W</td></tr>
+    </table>
+    <p>타공 오차범위: 0.1~2cm 발생 가능.</p>`,
+  'prod_4': `<span class="detail-label">📋 전자식 스위치 상세</span>
+    <p>화이트·블랙 두 가지. <strong>리모컨 포함</strong>. 건전지가 아닌 <strong>유선 전원 공급</strong> 방식 — 작동성·안정성·편리성에서 무선 스위치와 차이가 있음을 강조 안내합니다. IOT + 리모컨 병행 업그레이드 완료.</p>`,
+  'prod_5': `<span class="detail-label">📋 히든센서 적용 아파트</span>
+    <p>2025년 11월 말~12월부터 신규 진입 아파트에 순차 적용.</p>
+    <table><tr><th>아파트</th><th>입주 시작</th></tr>
+      <tr><td>평택 화양포레나</td><td>11/28</td></tr>
+      <tr><td>영주 아이파크</td><td>11/30</td></tr>
+      <tr><td>동대문 이문 아이파크자이</td><td>12/4</td></tr>
+      <tr><td>양양 금호어울림 더퍼스트</td><td>12/5</td></tr>
+      <tr><td>더샵 강동센트럴시티</td><td>12/10</td></tr>
+      <tr><td>정읍 푸르지오 더퍼스트</td><td>12/12</td></tr>
+      <tr><td>한화포레나 미아</td><td>12월</td></tr>
+      <tr><td>e편한세상 명덕역 퍼스트마크</td><td>26/1/2</td></tr>
+    </table>`,
+  'prod_6': `<span class="detail-label">📋 우물천장 종류</span>
+    <p><strong>직각 / 라운드 / 무몰딩 / 건설사 기본</strong> 4가지. 비교 이미지로 안내합니다. 기본은 직각이며, 옵션세대는 라운드 변경 시 추가 비용 없음. 결정 후 도면 수정 필요.</p>`,
+
+  // ── 결제·입금 ──
+  'pay_0': `<span class="detail-label">📋 결제 방식 비교</span>
+    <table><tr><th>방식</th><th>금액 차이</th><th>비고</th></tr>
+      <tr><td>카드 결제</td><td>동일</td><td>결제 링크 발송</td></tr>
+      <tr><td>계좌이체</td><td>동일</td><td>수수료 없음</td></tr>
+    </table>`,
+
+  // ── 취소·환불 ──
+  'can_0': `<span class="detail-label">📋 환불 규정 상세</span>
+    <table><tr><th>시공 예약일 기준</th><th>환불</th></tr>
+      <tr><td>15일 이전</td><td>100% 전액 환불</td></tr>
+      <tr><td>7~14일</td><td>50% 환불</td></tr>
+      <tr><td>6일 이내</td><td>환불 불가</td></tr>
+    </table>
+    <ul>
+      <li>아르떼 계약금(카드 결제분) → 아르떼에서 환불</li>
+      <li>나머지 금액 → 주관사를 통해 환불</li>
+    </ul>`,
+
+  // ── AS·하자 ──
+  'as_0': `<span class="detail-label">📋 AS 기간 기준</span>
+    <table><tr><th>제품</th><th>무상 AS</th></tr>
+      <tr><td>매입등·간접조명</td><td>2년</td></tr>
+      <tr><td>소모품성 센서</td><td>1년</td></tr>
+      <tr><td>보증 초과 시</td><td>출장비 5만원 + 부품비</td></tr>
+    </table>`,
+  'as_1': `<span class="detail-label">📋 AS 방문 프로세스</span>
+    <p>접수 → 기사님 해피콜(통화 확정) → 방문. 해피콜까지 <strong>3~7일</strong> 소요. 업체 일정에 따라 다소 늦어질 수 있습니다.</p>`,
+  'as_2': `<span class="detail-label">📋 센서등 자가 조절 방법</span>
+    <p>욕실 천장 센서를 직접 조절하실 수 있습니다. <strong>약·중·강 모드 + 주간·야간 모드</strong>가 있습니다.</p>
+    <div class="note tip"><span class="note-icon">i</span><div>실링팬 완전 차단: L2(거실·침실1) 차단기를 내렸다가 <strong>10분 이상 경과 후</strong> 올리면 메모리가 리셋됩니다. 바로 올리면 이전 설정으로 재작동합니다.</div></div>`,
+  'as_3': `<span class="detail-label">📋 도배 들뜸 원인</span>
+    <p>시공 초기 건조 과정에서 약간의 들뜸은 자연 복원되는 경우가 많습니다.</p>
+    <p><strong>우물천장 도배 찢어짐 하자 원인:</strong> 도배 시 한쪽 면이 막힌 상태로 마감 → 실링팬 설치 시 해당 면 오려냄 → 하자 발생. 도배사 방문 보수 조치.</p>`,
+  'as_4': `<span class="detail-label">📋 유상 AS 비용 기준</span>
+    <table><tr><th>상황</th><th>비용</th></tr>
+      <tr><td>고객 자재 준비 시</td><td>출장비 5만원</td></tr>
+      <tr><td>자재 포함 (보증 경과)</td><td>출장비 5만원 + 전자스위치 15만원 = 20만원</td></tr>
+    </table>`,
+  'as_5': `<span class="detail-label">📋 현관 천장 센서등 구분</span>
+    <table><tr><th>항목</th><th>시공 주체</th></tr>
+      <tr><td>현관 천장 센서등</td><td>건설사 → 아파트 지원센터 문의</td></tr>
+      <tr><td>신발장 하부 간접센서</td><td>아르떼조명 AS 대상</td></tr>
+    </table>
+    <div class="note tip"><span class="note-icon">i</span><div>루씨에어 AS 접수: as.ubob.biz (USSOFT A/S) / 담당자 02-2088-8829</div></div>`,
+  'as_6': `<span class="detail-label">📋 화재감지기 오작동 조치 순서</span>
+    <ul>
+      <li><strong>1단계 클리닝</strong> — 광전식 감지기는 먼지에 취약. 내부 먼지 청소로 해결되는 경우 많음.</li>
+      <li><strong>2단계 교체</strong> — 청소 후에도 지속되면 신규 모델 광전식 감지기로 교체 권장.</li>
+    </ul>
+    <p>실링팬 직접 원인으로 보기 어렵습니다. 수백 세대 중 한 세대 발생 수준입니다.</p>
+    <div class="note tip"><span class="note-icon">i</span><div>루씨에어3 리모컨 페어링: ① 차단기 1분 차단 후 재투입 ② 20초 이내 동기화 버튼 10초 길게 누름 ③ 동작 확인. 동영상: lucciair.kr/default/business/pairing.php</div></div>`,
+
+  // ── 사용·설치 ──
+  'how_0': `<span class="detail-label">📋 신청 프로세스</span>
+    <p>카카오톡으로 아파트명·동호수·희망 구성 전달 → 견적 → 계약서 발송 → 계약금(5만원) 입금 → 일정 확정.</p>`,
+  'how_4': `<span class="detail-label">📋 스위치 비교</span>
+    <table><tr><th>종류</th><th>특징</th></tr>
+      <tr><td>텀블러 스위치</td><td>물리적 온/오프만 가능</td></tr>
+      <tr><td>전자식 스위치</td><td>밝기·색온도 조절, 예약·원격 제어, IOT + 리모컨 병행</td></tr>
+    </table>
+    <p>전자식은 유선 전원 공급 방식으로 건전지 교체 불필요.</p>`,
+
+  // ── 서류·계약서 ──
+  'doc_0': `<span class="detail-label">📋 계약 조회 방법</span>
+    <p>성함·아파트명·동호수로 박람회 계약 정보 조회 가능. 계약서 원본 없어도 확인 가능합니다.</p>`,
+};
+
 let FAQ = {
   sch:[
     {q:"시공 날짜 예약은 어떻게 하나요? / ○월 ○일 가능한가요?", a:"희망 날짜와 입주일·잔금 납부일을 알려주시면 일정 확인 후 예약 확정 안내드립니다."},
@@ -550,7 +770,26 @@ function makeCard(type, sec, idx){
     const btnDel  = document.createElement('button'); btnDel.className='del-btn';  btnDel.textContent='🗑 삭제';  btnDel.onclick=()=>deleteItem('faq',sec,idx);
 
     foot.append(badge, btnCopy, btnEdit, btnDel);
-    body.append(q, a, foot);
+
+    // 상세 패널
+    const detailKey = sec+'_'+idx;
+    const detailHTML = DETAIL[detailKey];
+    if(detailHTML){
+      const btnDetail = document.createElement('button');
+      btnDetail.className='detail-toggle'; btnDetail.textContent='📖 상세 보기';
+      const panel = document.createElement('div');
+      panel.className='detail-panel'; panel.innerHTML=detailHTML;
+      btnDetail.onclick=()=>{
+        const isOpen = panel.classList.toggle('open');
+        btnDetail.classList.toggle('open', isOpen);
+        btnDetail.textContent = isOpen ? '📖 상세 닫기' : '📖 상세 보기';
+      };
+      foot.append(btnDetail);
+      body.append(q, a, foot, panel);
+    } else {
+      body.append(q, a, foot);
+    }
+
     div.append(num, body);
 
   } else {
