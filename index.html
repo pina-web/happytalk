@@ -300,7 +300,20 @@ body{margin:0;background:#EFEFEC;color:#1A1E22;
 #viewFaq.on,#viewCard.on{display:block;min-height:100vh}
 #viewFaq .hd{top:var(--tabh);z-index:200}
 #viewCard header{top:var(--tabh);z-index:50}
-#viewCard .sec{scroll-margin-top:calc(var(--tabh) + 140px)}
+#viewCard .sec{scroll-margin-top:calc(var(--tabh) + var(--cardheadh, 140px) + 10px)}
+#viewFaq .faq-sec,#viewFaq #mentArea{scroll-margin-top:calc(var(--tabh) + 20px)}
+
+/* 섹션 칩이 가로로 잘리지 않고 여러 줄로 흐르게 */
+#viewCard .chips{flex-wrap:wrap;overflow-x:visible;row-gap:6px;padding-bottom:12px}
+#viewCard .fchips{flex-wrap:wrap;overflow-x:visible;row-gap:6px}
+
+/* 각 파트의 제목은 상단 탭이 대신한다 — 중복 표기 제거 */
+#viewFaq .hd-inner > div:not(.hd-tools){display:none}
+#viewFaq .hd-inner{justify-content:flex-end}
+#viewFaq .hd{padding-top:10px;padding-bottom:10px}
+#viewCard .hrow > div:first-child{display:none}
+#viewCard .hrow{justify-content:flex-end}
+#viewCard header{padding-top:calc(10px + env(safe-area-inset-top,0px))}
 
 </style>
 </head>
@@ -310,7 +323,7 @@ body{margin:0;background:#EFEFEC;color:#1A1E22;
   <div class="sh-row">
     <div class="sh-brand">
       <div class="sh-mark">AR</div>
-      <div class="sh-name">아르떼조명 상담 통합<span>CONSULTING DESK</span></div>
+      <div class="sh-name">아르떼조명 상담 통합<span id="shellSub">CONSULTING DESK</span></div>
     </div>
     <div class="sh-tabs">
       <button class="sh-tab on" data-view="viewFaq"><span class="n">01</span>고객질문 정리 <span class="hit" id="hitFaq"></span></button>
@@ -1583,14 +1596,27 @@ function cardVisibleCount(){ return $$('.card').filter(c=>c.style.display!=='non
   const hits  = {viewFaq: document.getElementById('hitFaq'), viewCard: document.getElementById('hitCard')};
   const KEY   = 'arte.desk.view';
 
-  function setTabH(){ document.documentElement.style.setProperty('--tabh', shell.offsetHeight + 'px'); }
+  const sub      = document.getElementById('shellSub');
+  const cardHead = document.querySelector('#viewCard header');
+  const SUB = {viewFaq: '자주 묻는 질문 · 상담 멘트', viewCard: '상품 · 시공 · AS · 응대 스크립트'};
+
+  function setTabH(){
+    const r = document.documentElement.style;
+    r.setProperty('--tabh', shell.offsetHeight + 'px');
+    if(cardHead && cardHead.offsetHeight) r.setProperty('--cardheadh', cardHead.offsetHeight + 'px');
+  }
   setTabH();
   window.addEventListener('resize', setTabH);
-  if(window.ResizeObserver) new ResizeObserver(setTabH).observe(shell);
+  if(window.ResizeObserver){
+    const ro = new ResizeObserver(setTabH);
+    ro.observe(shell);
+    if(cardHead) ro.observe(cardHead);
+  }
 
   function show(id){
     Object.keys(views).forEach(k => views[k].classList.toggle('on', k === id));
     tabs.forEach(t => t.classList.toggle('on', t.dataset.view === id));
+    if(sub) sub.textContent = SUB[id] || 'CONSULTING DESK';
     try{ localStorage.setItem(KEY, id); }catch(e){}
     setTabH();
   }
