@@ -326,6 +326,34 @@ body{margin:0;background:#EFEFEC;color:#1A1E22;
 #viewCard .hrow{justify-content:flex-end}
 #viewCard header{padding-top:calc(10px + env(safe-area-inset-top,0px))}
 
+
+/* ===== 고객질문 정리: 헤더 정리·폭/폰트 확대 (상담사용 매뉴얼 기준) ===== */
+.sh-tabs{display:none!important}
+#shell{padding:10px 16px}
+.sh-row{max-width:1600px!important;width:100%;margin:0 auto;flex-wrap:nowrap}
+.sh-name{font-size:20px;letter-spacing:-.02em;white-space:nowrap}
+.sh-name b{font-weight:800}
+.sh-name span{font-size:11px}
+.sh-find{flex:1 1 auto;min-width:0;max-width:none}
+.sh-find input{font-size:15px;padding-top:11px;padding-bottom:11px;width:100%}
+#viewFaq{font-size:15px}
+#viewFaq .hd-inner,#viewFaq .sw,#viewFaq .fb,#viewFaq .main{max-width:1600px}
+#viewFaq .sw{max-width:1600px}
+#viewFaq .si{font-size:15px}
+#viewFaq .fb-btn{font-size:12.5px}
+#viewFaq .sh-title{font-size:18px}
+#viewFaq .card-q{font-size:16.5px}
+#viewFaq .card-a{font-size:14px;line-height:1.7}
+#viewFaq .badge{font-size:11px}
+#viewFaq .copy-btn,#viewFaq .edit-btn,#viewFaq .del-btn{font-size:12.5px}
+#viewFaq .mcat-btn{font-size:12.5px}
+#viewFaq .msi{font-size:15px}
+#viewFaq .mcnt{font-size:12px}
+@media(max-width:720px){
+  .sh-row{flex-wrap:wrap}
+  .sh-find{flex-basis:100%;order:3}
+  .sh-name{font-size:17px}
+}
 </style>
 </head>
 <body>
@@ -377,7 +405,7 @@ window.arteNavSet();
   <div class="sh-row">
     <div class="sh-brand">
       <div class="sh-mark">AR</div>
-      <div class="sh-name">아르떼조명 상담 통합<span id="shellSub">CONSULTING DESK</span></div>
+      <div class="sh-name"><b id="shellTitle">고객질문 정리</b><span id="shellSub">CONSULTING DESK</span></div>
     </div>
     <div class="sh-tabs">
       <button class="sh-tab on" data-view="viewFaq"><span class="n">01</span>고객질문 정리 <span class="hit" id="hitFaq"></span></button>
@@ -1673,6 +1701,7 @@ function cardVisibleCount(){ return $$('.card').filter(c=>c.style.display!=='non
     Object.keys(views).forEach(k => views[k].classList.toggle('on', k === id));
     tabs.forEach(t => t.classList.toggle('on', t.dataset.view === id));
     if(sub) sub.textContent = SUB[id] || 'CONSULTING DESK';
+    var _tt=document.getElementById('shellTitle'); if(_tt) _tt.textContent = (id==='viewCard')?'상담사용 매뉴얼':'고객질문 정리';
     try{ localStorage.setItem(KEY, id); }catch(e){}
     try{ var _k=(id==='viewCard')?'card':'faq'; history.replaceState(null,'','#'+_k); if(window.arteNavSet)arteNavSet(_k); }catch(e){}
     setTabH();
